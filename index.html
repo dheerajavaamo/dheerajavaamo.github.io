@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <title>Project COVID</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="robots" content="noindex, nofollow">
+</head>
+
+<body>
+    <script type="text/javascript">
+        var AvaamoChatBot = function (t) {
+            function o(t, o) {
+                var n = document.createElement("script");
+                n.setAttribute("src", t), n.onload = o, document.body.appendChild(n)
+            }
+            return this.options = t || {}, this.load = function (t) {
+                o(this.options.url, function () {
+                    window.Avaamo.addFrame(), t && "function" == typeof (t) && t(window.Avaamo)
+                })
+            }, this
+        };
+        var chatBox = new AvaamoChatBot({
+            url: 'https://c7.avaamo.com/web_channels/0ed8c2df-073b-496a-95a6-8cbd40c4d9dd?theme=avm-blue&zone_offset=5.5&utc_offset=19800&browser_locale=en-US&page_title=Project%20COVID:%20Interactive%20COVID-19%20Intelligent%20Virtual%20Assistant&scroll_behaviour=show_full_response&query_autocomplete_url=https://raw.githubusercontent.com/dheerajavaamo/auto_complete_list/master/auto_complete_queries.json&bot_typing_duration=100000&show_bot_typing=true'
+        });
+        chatBox.load(function (avaamo) {
+            avaamo.openChatBox();
+            avaamo.onChatBoxClose = function () {
+                window.close();
+            };
+        });
+    </script>
+</body>
+
+</html>
