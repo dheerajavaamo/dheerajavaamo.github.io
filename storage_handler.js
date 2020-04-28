@@ -81,7 +81,7 @@ function getStorage(url) {
 
             let firstBlankField = $('select,input,textarea').filter(function() { return $(this).val() == ""; })[0];
             if(firstBlankField){
-                firstBlankField.focus();
+                firstBlankField.scrollIntoView(false);
             }
         },
     });
