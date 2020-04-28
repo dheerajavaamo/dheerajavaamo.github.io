@@ -22,7 +22,9 @@ var grammar_words = [
     "stark",
     "accident",
     "got",
-    "luckily"
+    "luckily",
+    "sriram",
+    "chakravarthy"
 ];
 var grammar =
     "#JSGF V1.0; grammar colors; public <color> = " + grammar_words.join(" | ") + " ;";
@@ -30,37 +32,59 @@ var recognition = new SpeechRecognition();
 var speechRecognitionList = new SpeechGrammarList();
 speechRecognitionList.addFromString(grammar, 1);
 recognition.grammars = speechRecognitionList;
-recognition.continuous = false;
+recognition.continuous = true;
 recognition.lang = "en-US";
 recognition.interimResults = true;
 recognition.maxAlternatives = 1;
+
+var intermittantText = "";
+var dictation = "";
+var isListening = false;
 
 
 var diagnostic = document.querySelector(".speech_output");
 var microphone = document.querySelector(".fa-microphone");
 
-// document.body.onclick = function () {
-//     recognition.start();
-//     console.log("Ready to receive a color command.");
-// };
+function resetSpeechData(){
+    intermittantText = "";
+    dictation = "";
+}
+
+recognition.onstart = function(){
+    microphone.classList.add("active");
+    isListening = true;
+};
+
 
 recognition.onend = function(){
     microphone.classList.remove("active");
+    if(dictation)sendMessage(dictation);
+    isListening = false;
+    resetSpeechData();
 };
 
 recognition.onresult = function (event) {
-    var speechResult = event.results[0];
-    var transcript = speechResult[0].transcript;
-    diagnostic.textContent = transcript;
-    if (speechResult.isFinal) {
-        diagnostic.style.color = "black";
-        sendMessage(transcript);
-    } else {
-        diagnostic.style.color = "gray";
+    resetSpeechData();
+    console.log(event.results);
+    for(var idx = 0; idx < event.results.length ; idx++){
+        var r = event.results[idx];
+        var transcript = r[0].transcript;
+        if(r.isFinal){
+            dictation += " " + transcript;
+        }
+        else{
+            intermittantText += " " + transcript;
+        }
     }
+    
+    diagnostic.innerHTML = "<span class='final'>" + dictation + "</span>" + " <span class='intermediate'>" + intermittantText + "</span>";
 };
 
 function toggleSpeech(){
-    microphone.classList.add("active");
-    recognition.start();
+    if(isListening){
+        recognition.stop();
+    }
+    else{
+        recognition.start();
+    }
 }

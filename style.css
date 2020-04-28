@@ -75,3 +75,10 @@ p {
     font-family: 'Roboto', sans-serif;
     text-align: left;
 }
+
+span.final{
+    color: black;
+}
+span.intermediate {
+    color: gray;
+}
