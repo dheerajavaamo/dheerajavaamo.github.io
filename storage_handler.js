@@ -1,4 +1,4 @@
-const proxyurl = "https://cors-crush.herokuapp.com/";
+
 
 function getStorage(url) {
     $.ajax({

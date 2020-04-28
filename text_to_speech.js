@@ -1,5 +1,3 @@
-var polly_url = "https://c6.avaamo.com/web_channels/ssml_to_voice.json";
-var dashboard_access_token = "23c0601fb7704e30836cea931e266b26";
 
 function getPollyUtterance(text) {
     return fetch(polly_url, {
