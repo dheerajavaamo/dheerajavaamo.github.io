@@ -71,3 +71,7 @@ hr {
 button.btn-primary {
     margin-bottom: 20px;
 }
+p {
+    font-family: 'Roboto', sans-serif;
+    text-align: left;
+}
