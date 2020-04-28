@@ -7,7 +7,7 @@ function getPollyUtterance(text) {
         },
         "body": JSON.stringify({
             ssml: "<speak>" + text + "</speak>",
-            locale: voice_locale,
+            locale: agent_locale,
             persona: persona
         }),
         "method": "POST"

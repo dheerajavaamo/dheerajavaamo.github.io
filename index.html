@@ -2,6 +2,8 @@
 <html>
 
 <head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+  <script src="./RecordRTC.min.js"></script>
   <script src="./config.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
@@ -123,7 +125,7 @@
           <p>Hello, I can help you fill out an insurance claim.</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="initMessageHandler()">Let's get started</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="initMessageHandler();initRecording();">Let's get started</button>
         </div>
       </div>
     </div>
@@ -138,7 +140,7 @@
   </script>
   <script src="./text_to_speech.js"></script>
   <script src="./message_handler.js"></script>
-  <script src="./speech.js"></script>
+  <script src="./voice_client.js"></script>
   <script>
     $('#myModal').modal('show'); 
   </script>
