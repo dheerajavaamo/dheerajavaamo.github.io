@@ -1,0 +1,54 @@
+.bot-direction {
+    display: block;
+    position: fixed;
+    bottom: 11px;
+    right: 10px;
+    width: 199px;
+}
+
+.bot-direction>div {
+    font-size: 20px;
+}
+
+.bot-direction img {
+    width: 100px;
+}
+
+body {
+    margin: 0;
+}
+
+.container {
+    margin: 10px;
+}
+
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.speech_output {
+    margin-bottom: 20px;
+    min-height: 50px;
+}
+
+.fa-microphone {
+    font-size: 48px;
+    color: black;
+    text-align: center;
+    cursor: pointer;
+}
+
+.fa-microphone.active {
+    color: red;
+}
+
+.center {
+    text-align: center;
+}
+
+.agent-prompt {
+    min-height: 100px;
+}
