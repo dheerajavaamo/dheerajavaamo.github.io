@@ -22,7 +22,6 @@
 
 <body>
   <div class="agent-prompt center"></div>
-  <hr />
   <div class="container">
     <form class="needs-validation" novalidate>
       <div class="form-row">
@@ -113,6 +112,24 @@
 
   </footer>
 
+  <div id="myModal" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>Hello, I can help you fill out an insurance claim.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="initMessageHandler()">Let's get started</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
@@ -122,6 +139,9 @@
   </script>
   <script src="./message_handler.js"></script>
   <script src="./speech.js"></script>
+  <script>
+    $('#myModal').modal('show'); 
+  </script>
 </body>
 
 </html>

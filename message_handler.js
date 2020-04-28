@@ -79,5 +79,3 @@ function handleAgentResponse(m){
 function initMessageHandler() {
     sendMessage("reset");
 }
-
-initMessageHandler();

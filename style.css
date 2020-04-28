@@ -2,10 +2,12 @@
     form{
         max-height: 300px;
         overflow: scroll;
+        overflow-x: hidden;
     }
 }
-
-
+form {
+    padding-top: 20px;
+}
 .bot-direction {
     display: block;
     position: fixed;
@@ -33,8 +35,9 @@ hr {
 }
 
 .speech_output {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     min-height: 50px;
+    padding: 10px;
 }
 
 .fa-microphone {
@@ -54,4 +57,17 @@ hr {
 
 .agent-prompt {
     min-height: 100px;
+    padding: 10px;
+}
+.container {
+    background-color: lightgray;
+}
+
+.modal-footer button {
+    background-color: green;
+    color: white;
+}
+
+button.btn-primary {
+    margin-bottom: 20px;
 }
