@@ -7,8 +7,8 @@ function getPollyUtterance(text) {
         },
         "body": JSON.stringify({
             ssml: "<speak>" + text + "</speak>",
-            locale: "en-US",
-            persona: "Joanna"
+            locale: voice_locale,
+            persona: persona
         }),
         "method": "POST"
     }).then(res => res.json()).then(json => json.location);
@@ -21,8 +21,6 @@ var synth = window.speechSynthesis;
 var readQueue = [];
 var isReading = false;
 
-const urlParams = new URLSearchParams(window.location.search);
-const voiceLang = urlParams.get('voice') || "en-US";
 var selectedVoice;
 getSelectedVoice();
 
