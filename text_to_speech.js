@@ -1,3 +1,4 @@
+let polly_mapping = {};
 
 function getPollyUtterance(text) {
     return fetch(polly_url, {
@@ -11,7 +12,10 @@ function getPollyUtterance(text) {
             persona: persona
         }),
         "method": "POST"
-    }).then(res => res.json()).then(json => json.location);
+    }).then(res => res.json()).then(json => {
+        polly_mapping[text] = json.location;
+        return json.location;
+    });
 }
 
 var audioElement = document.querySelector("#reader");
@@ -36,12 +40,15 @@ function speak(text, onSpeechComplete) {
         isReading = true;
         speakNow(readQueue.shift(), onComplete, onSpeechComplete);
     }
+    else{
+        getPollyUtterance(text);
+    }
 
 }
 
 function onComplete(onSpeechComplete) {
     let nextText = readQueue.shift();
-    if (nextText) {
+    if (!isRecording && nextText) {
         speakNow(nextText, onComplete, onSpeechComplete);
     } else {
         isReading = false;
@@ -51,11 +58,20 @@ function onComplete(onSpeechComplete) {
 }
 
 function speakNow(text, onComplete, onSpeechComplete) {
-    getPollyUtterance(text).then(location => {
-        audioElement.src = location;
-        audioElement.play();
-        audioElement.onended = () => {
-            onComplete(onSpeechComplete);
-        };
-    });
+    if(polly_mapping[text]){
+        readThis(polly_mapping[text], onComplete, onSpeechComplete);
+    }
+    else{
+        getPollyUtterance(text).then(location => {
+            readThis(location, onComplete, onSpeechComplete);
+        });
+    }
+}
+
+function readThis(location, onComplete, onSpeechComplete){
+    audioElement.src = location;
+    audioElement.play();
+    audioElement.onended = () => {
+        onComplete(onSpeechComplete);
+    };
 }

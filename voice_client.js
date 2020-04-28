@@ -77,6 +77,7 @@ function initRecording() {
 
 
 function languageChanged(lang) {
+    console.log("sending language changed", lang);
     socket.emit('languageChanged', lang);
 }
 
@@ -138,10 +139,14 @@ function cancelIdleTimer(){
 //================= SOCKET IO =================
 socket.on('connect', function (data) {
     socket.emit('join', 'Server Connected to Client');
+    
 });
 
 socket.on('messages', function (data) {
-    // console.log(data);
+    console.log("Socket connected");
+    if(user_locale != "en-IN"){
+        languageChanged(user_locale);
+    }
 });
 
 socket.on('speechData', function (data) {

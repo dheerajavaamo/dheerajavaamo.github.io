@@ -1,5 +1,5 @@
-var polly_url = "https://c3.avaamo.com/web_channels/ssml_to_voice.json";
-var dashboard_access_token = "3832ed8031db4cc485dba1448257dd60";
+var polly_url = "https://c7.avaamo.com/web_channels/ssml_to_voice.json";
+var dashboard_access_token = "93ad5572f6cc489f8242249cbcbc2afb";
 const proxyurl = "https://cors-crush.herokuapp.com/";
 
 let bot_id = 3722;
