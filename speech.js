@@ -56,7 +56,7 @@ recognition.onresult = function (event) {
         diagnostic.style.color = "black";
         sendMessage(transcript);
     } else {
-        diagnostic.style.color = "lightgray";
+        diagnostic.style.color = "gray";
     }
 };
 
