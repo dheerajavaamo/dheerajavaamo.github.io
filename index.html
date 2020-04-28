@@ -11,7 +11,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <script src="./storage_handler.js"></script>
-  <script src="./text_to_speech.js"></script>
   <title>Form Agent</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -22,6 +21,7 @@
 </head>
 
 <body>
+  <audio id="reader" style="visibility: hidden;"></audio>
   <div class="agent-prompt center"></div>
   <div class="container">
     <form class="needs-validation" novalidate>
@@ -138,6 +138,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
   </script>
+  <script src="./text_to_speech.js"></script>
   <script src="./message_handler.js"></script>
   <script src="./speech.js"></script>
   <script>
