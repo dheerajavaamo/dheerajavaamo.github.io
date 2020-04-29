@@ -20,18 +20,8 @@ function getPollyUtterance(text) {
 
 var audioElement = document.querySelector("#reader");
 
-var synth = window.speechSynthesis;
-
 var readQueue = [];
 var isReading = false;
-
-var selectedVoice;
-getSelectedVoice();
-
-function getSelectedVoice() {
-    let filteredvoices = synth.getVoices().filter(v => v.lang == voiceLang);
-    selectedVoice = filteredvoices.find(v => v.name === "Samantha") || filteredvoices[0];
-}
 
 function speak(text, onSpeechComplete) {
     readQueue.push(text);
