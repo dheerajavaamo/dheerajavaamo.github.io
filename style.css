@@ -1,8 +1,16 @@
+html, 
+body {
+    height: 100%;
+}
+
 @media only screen and (max-width: 600px) {
     form{
-        max-height: 300px;
+        height: 100%;
         overflow: scroll;
         overflow-x: hidden;
+    }
+    .container{
+        height: calc(100% - 260px);
     }
 }
 form {
@@ -41,7 +49,7 @@ hr {
 }
 
 .fa-microphone {
-    font-size: 48px;
+    font-size: 50px;
     color: black;
     text-align: center;
     cursor: pointer;
@@ -56,7 +64,7 @@ hr {
 }
 
 .agent-prompt {
-    min-height: 100px;
+    height: 150px;
     padding: 10px;
 }
 .container {
