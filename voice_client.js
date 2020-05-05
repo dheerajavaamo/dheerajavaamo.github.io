@@ -2,7 +2,15 @@
 
 //connection to socket
 const socket = io.connect("https://voice.aiavaamo.com");
-// const socket = io.connect("http://ec2-52-53-186-226.us-west-1.compute.amazonaws.com:1337");
+
+
+let emailReplacements = {
+    "@gmail.com": /\s*(c?at|@|got|and)\s*gmail(\s*\.\s*(com|org|in))?/gi,
+    "@123.com": /\s*(c?at|got|and) (want|one|1) (2|tw?o) (three|3)\.\s*(com|org|in)/gi,
+    "@$1.$2": /\s*(?:c?at|@|got|and)\s*(\w{3,})\s*\.\s*(com|org|in)/gi
+};
+
+let replacements = [emailReplacements];
 
 //================= CONFIG =================
 // Stream Audio
@@ -165,8 +173,21 @@ socket.on('speechData', function (data) {
             intermediateText += " " + transcript;
         }
     }
-    diagnostic.innerHTML = "<span class='final'>" + dictation + "</span>" + " <span class='intermediate'>" + intermediateText + "</span>";
+    let processedUtterance = postProcessUtterance(dictation + " " + intermediateText);
+    
+    diagnostic.innerHTML = "<span class='final'>" + processedUtterance + "</span>" + " <span class='intermediate'>" + "" + "</span>";
 });
+
+function postProcessUtterance(text){
+    replacements.forEach(r => {
+        Object.keys(r).forEach(key => {
+            text = text.replace(r[key], key);
+        });
+    });
+
+    return text;
+
+}
 
 
 window.onbeforeunload = function () {
