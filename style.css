@@ -2,6 +2,11 @@ html,
 body {
     height: 100%;
 }
+@media only screen and (max-width: 600px){
+    .outer-container{
+        width: 100% !important;
+    }
+}
 .outer-container{
     width: 400px;
     position: absolute;
