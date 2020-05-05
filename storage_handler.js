@@ -11,7 +11,7 @@ function getStorage(url) {
         },
         success: function (json) {
             for (let obj of json.storage) {
-                if (obj.key == "first_name_1") {
+                if (obj.key == "person") {
                     var first_name = obj.value;
                 }
                 if (obj.key == "last_name_1") {
@@ -64,15 +64,12 @@ function getStorage(url) {
             // $("#form-data").html("<p>" + html + "</p>");
             // console.log(html);
             $("#first-name").attr("value", first_name);
-            $("#last-name").attr("value", last_name);
             $("#insurance-type").val(insurance_type);
-            $("#email").attr("value", email);
             $("#account-number").attr("value", account_number);
             $("#drivers-license").attr("value", drivers_license);
             $("#city").attr("value", city);
             $("#state").attr("value", state);
             $("#zip-code").attr("value", zip_code);
-            $("#country").attr("value", country);
             $("#phone").attr("value", phone);
             $("#datetime").attr("value", datetime);
             $("#car-make").attr("value", car_make);

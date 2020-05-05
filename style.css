@@ -2,16 +2,40 @@ html,
 body {
     height: 100%;
 }
-
-@media only screen and (max-width: 600px) {
-    form{
-        height: 100%;
-        overflow: scroll;
-        overflow-x: hidden;
+.outer-container{
+    width: 500px;
+    position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+  	
+	margin: auto;
+}
+@media (min-width: 768px){
+    .col-md-4 {
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
     }
-    .container{
-        height: calc(100% - 260px);
+    .col-md-6 {
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
     }
+    .col-md-3 {
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+form{
+    height: 100%;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+.container{
+    height: calc(100% - 280px);
 }
 form {
     padding-top: 20px;
@@ -44,8 +68,11 @@ hr {
 
 .speech_output {
     margin-bottom: 10px;
-    min-height: 50px;
+    height: 70px;
     padding: 10px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
 }
 
 .fa-microphone {

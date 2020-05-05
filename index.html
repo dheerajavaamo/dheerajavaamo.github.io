@@ -21,117 +21,104 @@
 </head>
 
 <body>
-  <audio id="reader" style="visibility: hidden;"></audio>
-  <div class="agent-prompt center"></div>
-  <div class="container">
-    <form class="needs-validation" novalidate>
-      <div class="form-row">
-        <div class="col-md-4 mb-3">
-          <label for="first-name">First name</label>
-          <input type="text" class="form-control" id="first-name" />
+  <div class="outer-container">
+    <audio id="reader" style="visibility: hidden;"></audio>
+    <div class="agent-prompt center"></div>
+    <div class="container">
+      <form class="needs-validation" novalidate>
+        <div class="form-row">
+          <div class="col-md-4 mb-3">
+            <label for="first-name">Name</label>
+            <input type="text" class="form-control" id="first-name" />
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="insurance-type">Insurance type</label>
+            <select id="insurance-type" class="form-control">
+              <option value=""></option>
+              <option>Home Insurance</option>
+              <option>Auto Insurance</option>
+            </select>
+          </div>
         </div>
-        <div class="col-md-4 mb-3">
-          <label for="last-name">Last name</label>
-          <input type="text" class="form-control" id="last-name" />
+        <div class="form-row">
+          <div class="col-md-3 mb-3">
+            <label for="account-number">Account number</label>
+            <input type="text" class="form-control" id="account-number" />
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="drivers-license">Driver's license</label>
+            <input type="text" class="form-control" id="drivers-license" />
+          </div>
         </div>
-        <div class="col-md-4 mb-3">
-          <label for="insurance-type">Insurance type</label>
-          <select id="insurance-type" class="form-control">
-            <option value=""></option>
-            <option>Home Insurance</option>
-            <option>Auto Insurance</option>
-          </select>
+        <hr />
+        <div class="form-row">
+          <div class="col-md-4 mb-3">
+            <label for="city">City</label>
+            <input type="text" class="form-control" id="city" />
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="state">State</label>
+            <input type="text" class="form-control" id="state" />
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="zip-code">Zip code</label>
+            <input type="text" class="form-control" id="zip-code" />
+          </div>
         </div>
-      </div>
-      <div class="form-row">
-        <div class="col-md-6 mb-3">
-          <label for="email">Email</label>
-          <input type="text" class="form-control" id="email" />
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <label for="phone">Phone Number</label>
+            <input type="text" class="form-control" id="phone" />
+          </div>
         </div>
-        <div class="col-md-3 mb-3">
-          <label for="account-number">Account number</label>
-          <input type="text" class="form-control" id="account-number" />
+        <hr />
+        <div class="form-row">
+          <div class="col-md-4 mb-3">
+            <label for="datetime">Incident date and time</label>
+            <input type="text" class="form-control" id="datetime" value="" />
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="car-make">Car manufacturer</label>
+            <input type="text" class="form-control" id="car-make" value="" />
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="car-model">Car model</label>
+            <input type="text" class="form-control" id="car-model" value="" />
+          </div>
         </div>
-        <div class="col-md-3 mb-3">
-          <label for="drivers-license">Driver's license</label>
-          <input type="text" class="form-control" id="drivers-license" />
+        <div class="form-group">
+          <label for="accident-details">Accident details</label>
+          <textarea class="form-control" id="accident-details" rows="3" value="hey there"></textarea>
         </div>
-      </div>
-      <hr />
-      <div class="form-row">
-        <div class="col-md-4 mb-3">
-          <label for="city">City</label>
-          <input type="text" class="form-control" id="city" />
-        </div>
-        <div class="col-md-4 mb-3">
-          <label for="state">State</label>
-          <input type="text" class="form-control" id="state" />
-        </div>
-        <div class="col-md-4 mb-3">
-          <label for="zip-code">Zip code</label>
-          <input type="text" class="form-control" id="zip-code" />
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="col-md-6 mb-3">
-          <label for="country">Country</label>
-          <input type="text" class="form-control" id="country" />
-        </div>
-        <div class="col-md-6 mb-3">
-          <label for="phone">Phone Number</label>
-          <input type="text" class="form-control" id="phone" />
-        </div>
-      </div>
-      <hr />
-      <div class="form-row">
-        <div class="col-md-4 mb-3">
-          <label for="datetime">Datetime</label>
-          <input type="text" class="form-control" id="datetime" value="" />
-        </div>
-        <div class="col-md-4 mb-3">
-          <label for="car-make">Car manufacturer</label>
-          <input type="text" class="form-control" id="car-make" value="" />
-        </div>
-        <div class="col-md-4 mb-3">
-          <label for="car-model">Car model</label>
-          <input type="text" class="form-control" id="car-model" value="" />
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="accident-details">Accident details</label>
-        <textarea class="form-control" id="accident-details" rows="3" value="hey there"></textarea>
-      </div>
-      <button class="btn btn-primary" type="submit">Submit form</button>
-    </form>
-  </div>
-  </div>
-  <footer>
-    <div class="speech_output center"></div>
-    <div class="center">
-      <div class="fa fa-microphone" onclick="toggleSpeech()"></div>
+        <button class="btn btn-primary" type="submit">Submit form</button>
+      </form>
     </div>
-
-  </footer>
+    <footer>
+      <div class="speech_output center"></div>
+      <div class="center">
+        <div class="fa fa-microphone" onclick="toggleSpeech()"></div>
+      </div>
+    </footer>
+  </div>
 
   <div id="myModal" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog">
-  
+
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          
+
         </div>
         <div class="modal-body">
           <p>Hello, I can help you fill out an insurance claim.</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="initMessageHandler();initRecording();">Let's get started</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal"
+            onclick="initMessageHandler();initRecording();">Let's get started</button>
         </div>
       </div>
     </div>
   </div>
-
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
   </script>
@@ -142,8 +129,9 @@
   <script src="./message_handler.js"></script>
   <script src="./voice_client.js"></script>
   <script>
-    $('#myModal').modal('show'); 
+    $('#myModal').modal('show');
   </script>
+
 </body>
 
 </html>
