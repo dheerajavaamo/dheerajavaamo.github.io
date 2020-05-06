@@ -60,8 +60,12 @@ function speakNow(text, onComplete, onSpeechComplete) {
 
 function readThis(location, onComplete, onSpeechComplete){
     audioElement.src = location;
-    audioElement.play();
+    playAudio();
     audioElement.onended = () => {
         onComplete(onSpeechComplete);
     };
+}
+
+function playAudio(){
+    audioElement.play();
 }

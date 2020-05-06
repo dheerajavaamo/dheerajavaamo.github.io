@@ -30,7 +30,8 @@ var isRecording = false,
 
 //audioStream constraints
 const constraints = {
-    audio: true
+    audio: true,
+    video: false
 };
 
 var diagnostic = document.querySelector(".speech_output");

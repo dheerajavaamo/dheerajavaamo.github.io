@@ -22,7 +22,7 @@
 
 <body>
   <div class="outer-container">
-    <audio id="reader" style="visibility: hidden;"></audio>
+    <audio id="reader" controls="true" playsinline autoplay style="visibility: hidden;"></audio>
     <div class="agent-prompt center"></div>
     <div class="container">
       <form class="needs-validation" novalidate>
@@ -114,7 +114,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal"
-            onclick="initMessageHandler();initRecording();">Let's get started</button>
+            onclick="initMessageHandler();initRecording();playAudio()">Let's get started</button>
         </div>
       </div>
     </div>
