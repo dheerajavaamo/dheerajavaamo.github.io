@@ -30,8 +30,7 @@ var isRecording = false,
 
 //audioStream constraints
 const constraints = {
-    audio: true,
-    video: false
+    audio: true
 };
 
 var diagnostic = document.querySelector(".speech_output");
@@ -108,7 +107,7 @@ function startRecording() {
         initialized = true;
         initRecording();
     } else {
-        startIdleTimer();
+        // startIdleTimer();
         microphone.classList.add("active");
         isRecording = true;
         if (paused) {
@@ -188,7 +187,7 @@ socket.on('messages', function (data) {
 });
 
 socket.on('speechData', function (data) {
-    startIdleTimer();
+    // startIdleTimer();
     console.log("voice data", data);
 
     resetSpeechData(true);
