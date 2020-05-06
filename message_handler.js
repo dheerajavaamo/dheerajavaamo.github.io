@@ -67,9 +67,12 @@ function handleAgentResponse(m){
         let newMessage = document.createElement("p");
         newMessage.innerText = m.text;
         agentResponse.appendChild(newMessage);
-        speak(m.text, () => {
+        if(!disable_speech){
+          speak(m.text, () => {
             // toggleSpeech();
-        });
+          });
+        }
+        
     }
     
 }

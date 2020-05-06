@@ -15,3 +15,11 @@ let persona = urlParams.get('persona') || "Joanna";
 
 
 const idle_timeout = 5000;
+
+function createVariablesFromParams(){
+    for(var key of urlParams.keys()) { 
+        window[key] = urlParams.get(key);
+    }
+}
+
+createVariablesFromParams();
