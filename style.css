@@ -2,13 +2,20 @@ html,
 body {
     height: 100%;
 }
+@media screen and (min-width: 800px) {
+    .outer-container{
+        padding: 66px 36px 52px 36px;
+        background: url("./iphone_background.png");
+        background-size: 100% 100%;
+    }
+}
 @media only screen and (max-width: 600px){
     .outer-container{
         width: 100% !important;
     }
 }
 .outer-container{
-    width: 400px;
+    width: 450px;
     position: absolute;
 	top:0;
 	bottom: 0;
