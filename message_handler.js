@@ -68,7 +68,7 @@ function handleAgentResponse(m){
         newMessage.innerText = m.text;
         agentResponse.appendChild(newMessage);
         speak(m.text, () => {
-            toggleSpeech();
+            // toggleSpeech();
         });
     }
     
