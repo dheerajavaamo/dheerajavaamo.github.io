@@ -9,7 +9,10 @@ hr {
     margin-top: 1rem;
     margin-bottom: 1rem;
     border: 0;
-    border-top: 2px solid rgba(0, 0, 0, 0.1);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #FFFFFF;
+    opacity: 0.11;
 }
 #overlay-color {
     position: fixed;
@@ -41,7 +44,6 @@ hr {
 }
 .container {
     height: calc(100% - 310px);
-    background: #24515A repeat;
 }
 .center {
     text-align: center;
@@ -66,6 +68,7 @@ p {
     padding: 0 20px;
     margin-top: 25px;
     color: #DDE5E6;
+    overflow: scroll;
 }
 .form{
     height: 100%;
@@ -73,6 +76,7 @@ p {
     overflow-x: hidden;
     padding: 10px;
     border-radius: 5px;
+    background: #24515A repeat;
 }
 .form label {
     text-align: left;
@@ -102,7 +106,6 @@ p {
 .bot-direction>div {
     font-size: 20px;
 }
-
 .bot-direction img {
     width: 100px;
 }
@@ -114,9 +117,9 @@ p {
     box-shadow: 0px -10px 10px 0px #577f8a;
 }
 .speech_output {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     height: 70px;
-    padding: 10px;
+    padding: 5px;
     overflow-y: scroll;
     overflow-x: hidden;
     color: #fff;
@@ -161,7 +164,7 @@ p {
 }
 .fa-microphone.active {
     background: #00BCDD;
-    animation: shadow-pulse 1s 4;
+    animation: shadow-pulse 1s infinite;
 }
 
 @media screen and (min-width: 800px) {
