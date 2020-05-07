@@ -1,18 +1,55 @@
-html, 
+html,
 body {
     height: 100%;
 }
 @media screen and (min-width: 800px) {
-    .outer-container{
-        padding: 4% 2% 3% 2%;
-        background: url("./iphone_background.png");
+    #overlay-image {
+        width: 25%;
+        position: fixed;
+        height: 100%;
+        margin: auto;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url("./iphone_background.png");
         background-size: 100% 100%;
+        /* Black background with opacity */
+        z-index: 2;
+        /* Specify a stack order in case you're using a different order for other elements */
+        cursor: pointer;
+        /* Add a pointer on hover */
+    }
+    #overlay-color {
+        width: 21%;
+    }
+    .outer-container {
+        height: 90% !important;
+    }
+    #overlay-color {
+        height: 95% !important;
     }
 }
 @media only screen and (max-width: 600px){
     .outer-container{
         width: 100% !important;
     }
+}
+#overlay-color {
+    position: fixed;
+    height: 100%;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, #01414B 13%, #021317 135%);
+    background-size: 100% 100%;
+    /* Black background with opacity */
+    z-index: 0;
+    /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer;
+    /* Add a pointer on hover */
 }
 .shadow-container{
     height: 10px;
@@ -22,15 +59,15 @@ body {
     box-shadow: 0px -10px 10px 0px #888888;
 }
 .outer-container{
-    /* width: 450px; */
-    width: 25%;
+    width: 21%;
     position: absolute;
 	top:0;
 	bottom: 0;
 	left: 0;
 	right: 0;
-  	
-	margin: auto;
+    margin: auto;
+    z-index: 5;
+    overflow: hidden;
 }
 @media (min-width: 768px){
     .col-md-4 {
@@ -49,16 +86,35 @@ body {
         max-width: 100%;
     }
 }
-form{
+.form{
     height: 100%;
     overflow: scroll;
     overflow-x: hidden;
+    padding: 10px;
+    border-radius: 5px;
+    background: #24515A 0% 0% no-repeat padding-box;
 }
+.form label {
+    text-align: left;
+    font-size: 14px;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+}
+.form .form-control {
+    background: #FFFFFF2F 0% 0% no-repeat padding-box;
+    border-radius: 4px;
+    border: none;
+    color: #FFFFFF;
+    opacity: 1;
+}
+.form-control:focus {
+    border: 1px solid #ced4da;
+    box-shadow: none;
+}
+
 .container{
     height: calc(100% - 280px);
-}
-form {
-    padding-top: 20px;
 }
 .bot-direction {
     display: block;
@@ -94,7 +150,6 @@ hr {
     overflow-x: hidden;
 
 }
-
 .fa-microphone {
     font-size: 50px;
     color: black;
@@ -111,11 +166,10 @@ hr {
 }
 
 .agent-prompt {
-    height: 150px;
-    padding: 10px;
-}
-.container {
-    background-color: lightgray;
+    height: 85px;
+    padding: 0 20px;
+    margin-top: 25px;
+    color: #DDE5E6;
 }
 
 .modal-footer button {
