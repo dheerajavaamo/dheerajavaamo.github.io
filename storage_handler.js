@@ -64,7 +64,6 @@ function getStorage(url) {
             // $("#form-data").html("<p>" + html + "</p>");
             // console.log(html);
             $("#first-name").attr("value", first_name);
-            $("#insurance-type").val(insurance_type);
             $("#account-number").attr("value", account_number);
             $("#drivers-license").attr("value", drivers_license);
             $("#city").attr("value", city);
