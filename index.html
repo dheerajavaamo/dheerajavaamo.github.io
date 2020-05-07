@@ -29,7 +29,7 @@
       <hr />
       <div class="container">
         <form class="form" novalidate>
-          <div class="form-row">
+          <div class="form-group">
             <div class="col-md-4 mb-3">
               <label for="first-name">Name</label>
               <input type="text" class="form-control form-control-lg" id="first-name" />
@@ -43,7 +43,7 @@
               </select>
             </div>
           </div>
-          <div class="form-row">
+          <div class="form-group">
             <div class="col-md-3 mb-3">
               <label for="account-number">Account number</label>
               <input type="text" class="form-control form-control-lg" id="account-number" />
@@ -54,7 +54,7 @@
             </div>
           </div>
           <hr />
-          <div class="form-row">
+          <div class="form-group">
             <div class="col-md-4 mb-3">
               <label for="city">City</label>
               <input type="text" class="form-control form-control-lg" id="city" />
@@ -68,14 +68,13 @@
               <input type="text" class="form-control form-control-lg" id="zip-code" />
             </div>
           </div>
-          <div class="form-row">
+          <div class="form-group">
             <div class="col-md-6 mb-3">
               <label for="phone">Phone Number</label>
               <input type="text" class="form-control form-control-lg" id="phone" />
             </div>
           </div>
-          <hr />
-          <div class="form-row">
+          <div class="form-group">
             <div class="col-md-4 mb-3">
               <label for="datetime">Incident date and time</label>
               <input type="text" class="form-control form-control-lg" id="datetime" value="" />
@@ -90,17 +89,21 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="accident-details">Accident details</label>
-            <textarea class="form-control form-control-lg" id="accident-details" rows="3" value="hey there"></textarea>
+            <div class="col-md-4 mb-3">
+              <label for="accident-details">Accident details</label>
+              <textarea class="form-control form-control-lg" id="accident-details" rows="3" value="hey there"></textarea>
+            </div>
           </div>
-          <button class="btn btn-primary" type="submit">Submit form</button>
+          <div class="col-md-6 mb-3">
+            <button class="btn btn-primary" type="submit">Submit form</button>
+          </div>
         </form>
         <div class="shadow-container"></div>
       </div>
     <footer>
       <div class="speech_output center"></div>
-      <div class="center">
-        <div class="fa fa-microphone" onclick="toggleSpeech()"></div>
+      <div class="center" onclick="toggleSpeech()">
+        <i class="fa fa-microphone" aria-hidden="true"></i>
       </div>
     </footer>
   </div>
@@ -110,14 +113,11 @@
 
       <!-- Modal content-->
       <div class="modal-content">
-        <div class="modal-header">
-
-        </div>
         <div class="modal-body">
           <p>Hello, I can help you fill out an insurance claim.</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal"
+          <button type="button" class="btn btn-default btn-primary" data-dismiss="modal"
             onclick="initMessageHandler();initRecording();playAudio()">Let's get started</button>
         </div>
       </div>
