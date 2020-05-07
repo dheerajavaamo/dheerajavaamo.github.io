@@ -8,10 +8,10 @@ let custom_channel_url = "https://c7.avaamo.com/bot_connector_webhooks/006b759f-
 
 
 const urlParams = new URLSearchParams(window.location.search);
-let user_locale = urlParams.get('user_locale') || localStorage.getItem("user_locale", "en-US");
-let agent_locale = urlParams.get('agent_locale') || localStorage.getItem("agent_locale", "en-US");
+let user_locale = urlParams.get('user_locale') || localStorage.getItem("user_locale", "en-US") || "en-US";
+let agent_locale = urlParams.get('agent_locale') || localStorage.getItem("agent_locale", "en-US") || "en-US";
 
-let persona = urlParams.get('persona') || localStorage.getItem("persona", "Joanna");
+let persona = urlParams.get('persona') || localStorage.getItem("persona", "Joanna") || "Joanna";
 
 const idle_timeout = 5000;
 
