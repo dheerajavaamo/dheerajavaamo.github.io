@@ -94,14 +94,16 @@
               <textarea class="form-control form-control-lg" id="accident-details" rows="3" value="hey there"></textarea>
             </div>
           </div>
-          <button class="btn btn-primary" type="submit">Submit form</button>
+          <div class="col-md-6 mb-3">
+            <button class="btn btn-primary" type="submit">Submit form</button>
+          </div>
         </form>
         <div class="shadow-container"></div>
       </div>
     <footer>
       <div class="speech_output center"></div>
-      <div class="center">
-        <div class="fa fa-microphone" onclick="toggleSpeech()"></div>
+      <div class="center" onclick="toggleSpeech()">
+        <i class="fa fa-microphone" aria-hidden="true"></i>
       </div>
     </footer>
   </div>
