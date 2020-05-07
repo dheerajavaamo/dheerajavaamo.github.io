@@ -14,7 +14,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <script src="./storage_handler.js"></script>
-  <title>Form Agent</title>
+  <title>Auto Insurance</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
@@ -24,87 +24,169 @@
   <div id="overlay-image"></div>
   <div id="overlay-color"></div>
   <div class="outer-container">
-    <audio id="reader" style="visibility: hidden;"></audio>
-    <div class="container">
-      <div class="agent-prompt center" onclick="expandTextPopup('agent-prompt')"></div>
-    </div>
-    <hr />
-    <div class="container form-wrap">
-      <form class="form" novalidate>
-        <div class="form-group">
-          <div class="col-md-4 mb-3">
-            <label for="first-name">Name</label>
-            <input type="text" class="form-control form-control-lg" id="first-name" />
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-md-3 mb-3">
-            <label for="account-number">Account number</label>
-            <input type="text" class="form-control form-control-lg" id="account-number" />
-          </div>
-          <div class="col-md-3 mb-3">
-            <label for="drivers-license">Driver's license</label>
-            <input type="text" class="form-control form-control-lg" id="drivers-license" />
-          </div>
-        </div>
-        <hr />
-        <div class="form-group">
-          <div class="col-md-4 mb-3">
-            <label for="city">City</label>
-            <input type="text" class="form-control form-control-lg" id="city" />
-          </div>
-          <div class="col-md-4 mb-3">
-            <label for="state">State</label>
-            <input type="text" class="form-control form-control-lg" id="state" />
-          </div>
-          <div class="col-md-4 mb-3">
-            <label for="zip-code">Zip code</label>
-            <input type="text" class="form-control form-control-lg" id="zip-code" />
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-md-6 mb-3">
-            <label for="phone">Phone Number</label>
-            <input type="text" class="form-control form-control-lg" id="phone" />
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-md-4 mb-3">
-            <label for="datetime">Incident date and time</label>
-            <input type="text" class="form-control form-control-lg" id="datetime" value="" />
-          </div>
-          <div class="col-md-4 mb-3">
-            <label for="car-make">Car manufacturer</label>
-            <input type="text" class="form-control form-control-lg" id="car-make" value="" />
-          </div>
-          <div class="col-md-4 mb-3">
-            <label for="car-model">Car model</label>
-            <input type="text" class="form-control form-control-lg" id="car-model" value="" />
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-md-4 mb-3">
-            <label for="accident-details">Accident details</label>
-            <textarea class="form-control form-control-lg" id="accident-details" rows="3" value="hey there"></textarea>
-          </div>
-        </div>
-        <div class="col-md-6 mb-3">
-          <button class="btn btn-primary" type="submit">Submit form</button>
-        </div>
-      </form>
-      <div class="shadow-container"></div>
-    </div>
-    <footer>
-      <div class="speech_output center" onclick="expandTextPopup('speech_output')"></div>
-      <div class="center" onclick="toggleSpeech()">
-        <i class="fa fa-microphone" aria-hidden="true"></i>
+    <div class="mainPage">
+      <div class="settingIcon" onclick="openSettingPage()">
+        <i class="fa fa-cog" aria-hidden="true"></i>
       </div>
-    </footer>
+      <audio id="reader" style="visibility: hidden;"></audio>
+      <div class="container">
+        <div class="agent-prompt center" onclick="expandTextPopup('agent-prompt')"></div>
+      </div>
+      <hr />
+      <div class="container form-wrap">
+        <form class="form" novalidate>
+          <div class="form-group">
+            <div class="col-md-4 mb-3">
+              <label for="first-name">Name</label>
+              <input type="text" class="form-control form-control-lg" id="first-name" />
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-3 mb-3">
+              <label for="account-number">Account number</label>
+              <input type="text" class="form-control form-control-lg" id="account-number" />
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="drivers-license">Driver's license</label>
+              <input type="text" class="form-control form-control-lg" id="drivers-license" />
+            </div>
+          </div>
+          <hr />
+          <div class="form-group">
+            <div class="col-md-4 mb-3">
+              <label for="city">City</label>
+              <input type="text" class="form-control form-control-lg" id="city" />
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="state">State</label>
+              <input type="text" class="form-control form-control-lg" id="state" />
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="zip-code">Zip code</label>
+              <input type="text" class="form-control form-control-lg" id="zip-code" />
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-6 mb-3">
+              <label for="phone">Phone Number</label>
+              <input type="text" class="form-control form-control-lg" id="phone" />
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-4 mb-3">
+              <label for="datetime">Incident date and time</label>
+              <input type="text" class="form-control form-control-lg" id="datetime" value="" />
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="car-make">Car manufacturer</label>
+              <input type="text" class="form-control form-control-lg" id="car-make" value="" />
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="car-model">Car model</label>
+              <input type="text" class="form-control form-control-lg" id="car-model" value="" />
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-4 mb-3">
+              <label for="accident-details">Accident details</label>
+              <textarea class="form-control form-control-lg" id="accident-details" rows="3" value="hey there"></textarea>
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <button class="btn btn-primary" type="submit">Submit form</button>
+          </div>
+        </form>
+        <div class="shadow-container"></div>
+      </div>
+      <footer>
+        <div class="speech_output center" onclick="expandTextPopup('speech_output')"></div>
+        <div class="center" onclick="toggleSpeech()">
+          <i class="fa fa-microphone" aria-hidden="true"></i>
+        </div>
+      </footer>
+    </div>
+    <div class="settingPage">
+      <div class="backIcon" onclick="openMainPage()">
+        <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+      </div>
+      <div class="container">
+        <form class="settingForm">
+          <h5>Settings</h5>
+          <hr/>
+          <div class="form-group">
+            <h6>ASSISTANCE VOICE</h6>
+            <p class="help-text">Choose the voice your Assitant will use to respond to you</p>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="persona" id="Joey" value="Joey"
+                checked>
+              <label class="form-check-label" for="Joey">
+                Joey
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="persona" id="Joanna" value="Joanna"
+                checked>
+              <label class="form-check-label" for="Joanna">
+                Joanna
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="persona" id="Matthew" value="Matthew">
+              <label class="form-check-label" for="Matthew">
+                Matthew
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="persona" id="Takumi" value="Takumi">
+              <label class="form-check-label" for="Takumi">
+                Takumi
+              </label>
+            </div>
+          </div>
+          <hr />
+          <div class="form-group">
+            <h6>LANGUAGE AND LOCALE</h6>
+            <p class="help-text">Choose language and locale for speaking to your Assistant</p>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="user_locale" id="ENGLISHUS" value="en-US" checked>
+              <label class="form-check-label" for="ENGLISHUS">
+                English (US)
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="user_locale" id="ENGLISHUK" value="en-AU"
+                checked>
+              <label class="form-check-label" for="ENGLISHUK">
+                English (AU)
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="user_locale" id="ENGLISHIND" value="en-IN">
+              <label class="form-check-label" for="ENGLISHIND">
+                English (IND)
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="user_locale" id="Japanese" value="ja-JP">
+              <label class="form-check-label" for="Japanese">
+                Japanese
+              </label>
+            </div>
+          </div>
+          <hr />
+          <div class="form-group">
+            <h6>VOICE TRAING</h6>
+            <p class="help-text">Train your assistance to recognize your voice</p>
+            <button class="btn-primary">TRAIN</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
   </div>
 
   <div id="myModal" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog">
-
       <div class="modal-content">
         <div class="modal-body">
           <p>Hello, I can help you fill out an insurance claim.</p>
@@ -118,7 +200,6 @@
   </div>
   <div id="textModal" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog">
-
       <div class="modal-content">
         <div class="modal-body">
         </div>
@@ -139,6 +220,7 @@
   <script src="./voice_client.js"></script>
   <script>
     $('#myModal').modal('show');
+    $('.settingPage').hide();
   </script>
 
 </body>

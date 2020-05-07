@@ -86,3 +86,13 @@ function expandTextPopup(className) {
   $('#textModal').find(".modal-body").append(text)
   $('#textModal').modal('show');
 }
+
+function openSettingPage() {
+  $('.mainPage').hide();
+  $('.settingPage').show();
+}
+
+function openMainPage() {
+  $('.settingPage').hide();
+  $('.mainPage').show();
+}
