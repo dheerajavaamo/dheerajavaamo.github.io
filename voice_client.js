@@ -59,7 +59,7 @@ function initRecording() {
         initialized = true;
 
         recorder = RecordRTC(stream, {
-            timeSlice: 1000,
+            timeSlice: 200,
             bufferSize: 4096,
             desiredSampRate: 16000,
             type: 'audio',
