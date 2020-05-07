@@ -152,39 +152,37 @@ socket.on('connect', function (data) {
 
 socket.on('messages', function (data) {
     console.log("Socket connected");
-    if(user_locale != "en-IN"){
-        languageChanged(user_locale);
-        addHints([
-          "Sriram",
-          "Chakravarthi",
-          "Madhav",
-          "Vodnala",
-          "insurance",
-          "auto insurance",
-          "email",
-          "account",
-          "account number",
-          "drivers",
-          "drivers license",
-          "city",
-          "state",
-          "country",
-          "civic",
-          "honda",
-          "hyundai",
-          "phone",
-          "hurt",
-          "stark",
-          "accident",
-          "got",
-          "luckily",
-          "driver",
-          "license",
-          "account",
-          "gmail",
-          "email",
-        ]);
-    }
+    languageChanged(user_locale);
+    addHints([
+        "Sriram",
+        "Chakravarthi",
+        "Madhav",
+        "Vodnala",
+        "insurance",
+        "auto insurance",
+        "email",
+        "account",
+        "account number",
+        "drivers",
+        "drivers license",
+        "city",
+        "state",
+        "country",
+        "civic",
+        "honda",
+        "hyundai",
+        "phone",
+        "hurt",
+        "stark",
+        "accident",
+        "got",
+        "luckily",
+        "driver",
+        "license",
+        "account",
+        "gmail",
+        "email",
+    ]);
 });
 
 socket.on('speechData', function (data) {

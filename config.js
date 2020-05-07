@@ -8,7 +8,7 @@ let custom_channel_url = "https://c7.avaamo.com/bot_connector_webhooks/006b759f-
 
 
 const urlParams = new URLSearchParams(window.location.search);
-const user_locale = urlParams.get('user_locale') || "en-US";
+let user_locale = urlParams.get('user_locale') || "en-US";
 let agent_locale = urlParams.get('agent_locale') || "en-US";
 
 let persona = urlParams.get('persona') || "Joanna";
@@ -23,3 +23,20 @@ function createVariablesFromParams(){
 }
 
 createVariablesFromParams();
+
+function onPersonaSelected(selectedPersona){
+    persona = selectedPersona;
+    switch(selectedPersona){
+        case "Joanna":
+        case "Joey":
+        case "Matthew":
+            agent_locale = "en-US";
+            break;
+        case "Takumi":
+            agent_locale = "ja-JP";
+    }
+}
+
+function onUserLocaleSelected(selectedLocale){
+    user_locale = selectedLocale;
+}

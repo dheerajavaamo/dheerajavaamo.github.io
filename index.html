@@ -117,27 +117,25 @@
             <h6>ASSISTANCE VOICE</h6>
             <p class="help-text">Choose the voice your Assitant will use to respond to you</p>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="persona" id="Joey" value="Joey"
-                checked>
+              <input class="form-check-input" type="radio" name="persona" id="Joey" value="Joey" onclick="onPersonaSelected('Joey')">
               <label class="form-check-label" for="Joey">
                 Joey
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="persona" id="Joanna" value="Joanna"
-                checked>
+              <input class="form-check-input" type="radio" name="persona" id="Joanna" value="Joanna" checked onclick="onPersonaSelected('Joanna')">
               <label class="form-check-label" for="Joanna">
                 Joanna
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="persona" id="Matthew" value="Matthew">
+              <input class="form-check-input" type="radio" name="persona" id="Matthew" value="Matthew" onclick="onPersonaSelected('Matthew')">
               <label class="form-check-label" for="Matthew">
                 Matthew
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="persona" id="Takumi" value="Takumi">
+              <input class="form-check-input" type="radio" name="persona" id="Takumi" value="Takumi" onclick="onPersonaSelected('Takumi')">
               <label class="form-check-label" for="Takumi">
                 Takumi
               </label>
@@ -148,26 +146,25 @@
             <h6>LANGUAGE AND LOCALE</h6>
             <p class="help-text">Choose language and locale for speaking to your Assistant</p>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="user_locale" id="ENGLISHUS" value="en-US" checked>
+              <input class="form-check-input" type="radio" name="user_locale" id="ENGLISHUS" value="en-US" checked onclick="onUserLocaleSelected('en-US')">
               <label class="form-check-label" for="ENGLISHUS">
                 English (US)
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="user_locale" id="ENGLISHUK" value="en-AU"
-                checked>
+              <input class="form-check-input" type="radio" name="user_locale" id="ENGLISHUK" value="en-AU" onclick="onUserLocaleSelected('en-GB')">
               <label class="form-check-label" for="ENGLISHUK">
                 English (AU)
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="user_locale" id="ENGLISHIND" value="en-IN">
+              <input class="form-check-input" type="radio" name="user_locale" id="ENGLISHIND" value="en-IN" onclick="onUserLocaleSelected('en-IN')">
               <label class="form-check-label" for="ENGLISHIND">
                 English (IND)
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="user_locale" id="Japanese" value="ja-JP">
+              <input class="form-check-input" type="radio" name="user_locale" id="Japanese" value="ja-JP" onclick="onUserLocaleSelected('ja-JP')">
               <label class="form-check-label" for="Japanese">
                 Japanese
               </label>
