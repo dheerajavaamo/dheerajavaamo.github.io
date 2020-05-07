@@ -72,11 +72,17 @@ function handleAgentResponse(m){
             // toggleSpeech();
           });
         }
-        
+
     }
-    
+
 }
 
 function initMessageHandler() {
     sendMessage("reset");
+}
+
+function expandTextPopup(className) {
+  var text = $("." + className).html()
+  $('#textModal').find(".modal-body").append(text)
+  $('#textModal').modal('show');
 }

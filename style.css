@@ -64,13 +64,13 @@ p {
     color: #000;
 }
 .agent-prompt {
-    height: 85px;
+    height: 70px;
     padding: 0 20px;
     margin-top: 25px;
     color: #DDE5E6;
-    overflow: scroll;
+    overflow: hidden;
 }
-.form{
+.form {
     height: 100%;
     overflow: scroll;
     overflow-x: hidden;
@@ -118,9 +118,9 @@ p {
 }
 .speech_output {
     margin-bottom: 5px;
-    height: 70px;
+    height: 55px;
     padding: 5px;
-    overflow-y: scroll;
+    overflow-y: hidden;
     overflow-x: hidden;
     color: #fff;
 }
@@ -205,10 +205,6 @@ p {
         background: linear-gradient(to top, rgb(1, 3, 5) 0%, rgb(0, 42, 50) 60%, rgb(0, 67, 79) 100%);
         background-size: 100% 100%;
     }
-
-    #overlay {
-        display: none;
-    }
 }
 @media only screen and (max-width: 600px) {
     .outer-container {
@@ -219,9 +215,6 @@ p {
         background: -moz-linear-gradient(bottom, rgb(1, 3, 5) 0%, rgb(0, 42, 50) 60%, rgb(0, 67, 79) 100%);
         background: linear-gradient(to top, rgb(1, 3, 5) 0%, rgb(0, 42, 50) 60%, rgb(0, 67, 79) 100%);
         background-size: 100% 100%;
-    }
-    #overlay{
-        display: none;
     }
 }
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px){
@@ -236,9 +229,6 @@ p {
     }
     .modal.show .modal-dialog{
         width: 100%;
-    }
-    #overlay {
-        display: none;
     }
 }
 @media (min-width: 768px) {

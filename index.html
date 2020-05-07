@@ -26,7 +26,7 @@
   <div class="outer-container">
     <audio id="reader" style="visibility: hidden;"></audio>
     <div class="container">
-      <div class="agent-prompt center"></div>
+      <div class="agent-prompt center" onclick="expandTextPopup('agent-prompt')"></div>
     </div>
     <hr />
     <div class="container form-wrap">
@@ -103,7 +103,7 @@
       <div class="shadow-container"></div>
     </div>
     <footer>
-      <div class="speech_output center"></div>
+      <div class="speech_output center" onclick="expandTextPopup('speech_output')"></div>
       <div class="center" onclick="toggleSpeech()">
         <i class="fa fa-microphone" aria-hidden="true"></i>
       </div>
@@ -113,7 +113,6 @@
   <div id="myModal" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog">
 
-      <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-body">
           <p>Hello, I can help you fill out an insurance claim.</p>
@@ -121,6 +120,18 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-default btn-primary" data-dismiss="modal"
             onclick="initMessageHandler();initRecording();playAudio()">Let's get started</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="textModal" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+
+      <div class="modal-content">
+        <div class="modal-body">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default btn-primary" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
