@@ -54,9 +54,9 @@ body {
 .shadow-container{
     height: 10px;
     position: absolute;
-    left: 8%;
-    right: 8%;
-    box-shadow: 0px -10px 10px 0px #888888;
+    left: 4%;
+    right: 4%;
+    box-shadow: 0px -10px 10px 0px #577f8a;
 }
 .outer-container{
     width: 21%;
