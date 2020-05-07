@@ -2,38 +2,14 @@ html,
 body {
     height: 100%;
 }
-@media screen and (min-width: 800px) {
-    #overlay-image {
-        width: 25%;
-        position: fixed;
-        height: 100%;
-        margin: auto;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-image: url("./iphone_background.png");
-        background-size: 100% 100%;
-        /* Black background with opacity */
-        z-index: 2;
-        /* Specify a stack order in case you're using a different order for other elements */
-        cursor: pointer;
-        /* Add a pointer on hover */
-    }
-    #overlay-color {
-        width: 21%;
-    }
-    .outer-container {
-        height: 90% !important;
-    }
-    #overlay-color {
-        height: 95% !important;
-    }
+body {
+    margin: 0;
 }
-@media only screen and (max-width: 600px){
-    .outer-container{
-        width: 100% !important;
-    }
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 2px solid rgba(0, 0, 0, 0.1);
 }
 #overlay-color {
     position: fixed;
@@ -45,18 +21,8 @@ body {
     bottom: 0;
     background: linear-gradient(to bottom, #01414B 13%, #021317 135%);
     background-size: 100% 100%;
-    /* Black background with opacity */
     z-index: 0;
-    /* Specify a stack order in case you're using a different order for other elements */
     cursor: pointer;
-    /* Add a pointer on hover */
-}
-.shadow-container{
-    height: 10px;
-    position: absolute;
-    left: 4%;
-    right: 4%;
-    box-shadow: 0px -10px 10px 0px #577f8a;
 }
 .outer-container{
     width: 21%;
@@ -69,22 +35,36 @@ body {
     z-index: 5;
     overflow: hidden;
 }
-@media (min-width: 768px){
-    .col-md-4 {
-        -ms-flex: 0 0 100%;
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
-    .col-md-6 {
-        -ms-flex: 0 0 100%;
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
-    .col-md-3 {
-        -ms-flex: 0 0 100%;
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
+.container {
+    height: calc(100% - 280px);
+    background: #24515A repeat;
+}
+.center {
+    text-align: center;
+}
+p {
+    font-family: 'Roboto', sans-serif;
+    text-align: left;
+}
+span.final {
+    color: black;
+}
+span.intermediate {
+    color: gray;
+}
+.btn-primary {
+    background: #01414B;
+    border-color: #fff;
+}
+.btn-primary:hover {
+    background: #01414B;
+    border-color: #fff;
+}
+.agent-prompt {
+    height: 85px;
+    padding: 0 20px;
+    margin-top: 25px;
+    color: #DDE5E6;
 }
 .form{
     height: 100%;
@@ -92,7 +72,6 @@ body {
     overflow-x: hidden;
     padding: 10px;
     border-radius: 5px;
-    background: #24515A 0% 0% no-repeat padding-box;
 }
 .form label {
     text-align: left;
@@ -102,7 +81,7 @@ body {
     opacity: 1;
 }
 .form .form-control {
-    background: #FFFFFF2F 0% 0% no-repeat padding-box;
+    background: #FFFFFF2F 0% 0% repeat;
     border-radius: 4px;
     border: none;
     color: #FFFFFF;
@@ -112,10 +91,6 @@ body {
     border: 1px solid #ced4da;
     box-shadow: none;
 }
-
-.container{
-    height: calc(100% - 280px);
-}
 .bot-direction {
     display: block;
     position: fixed;
@@ -123,7 +98,6 @@ body {
     right: 10px;
     width: 199px;
 }
-
 .bot-direction>div {
     font-size: 20px;
 }
@@ -131,17 +105,13 @@ body {
 .bot-direction img {
     width: 100px;
 }
-
-body {
-    margin: 0;
+.shadow-container {
+    height: 10px;
+    position: absolute;
+    left: 4%;
+    right: 4%;
+    box-shadow: 0px -10px 10px 0px #577f8a;
 }
-hr {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    border: 0;
-    border-top: 2px solid rgba(0, 0, 0, 0.1);
-}
-
 .speech_output {
     margin-bottom: 10px;
     height: 70px;
@@ -156,38 +126,77 @@ hr {
     text-align: center;
     cursor: pointer;
 }
-
 .fa-microphone.active {
     color: red;
 }
-
-.center {
-    text-align: center;
+.modal.show .modal-dialog {
+    width: 90%;
+    margin: auto;
+    top: 35%;
+    background: #021317;
+    border-radius: 5px;
+    border: solid 1px #fff;
+}
+.modal.show .modal-dialog .modal-content {
+    background: linear-gradient(to bottom, #01414B 13%, #021317 135%);
+    color: #fff;
+}
+.modal.show .modal-dialog .modal-footer {
+    border-top: none;
+}
+.modal.show .modal-dialog .modal-footer button {
+  margin-bottom: 0;
+}
+@media screen and (min-width: 800px) {
+    #overlay-image {
+        width: 25%;
+        position: fixed;
+        height: 100%;
+        margin: auto;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url("./iphone_background.png");
+        background-size: 100% 100%;
+        z-index: 2;
+        cursor: pointer;
+    }
+    #overlay-color {
+        width: 21%;
+    }
+    .outer-container {
+        height: 90% !important;
+    }
+    #overlay-color {
+        height: 95% !important;
+    }
+    .modal.show .modal-dialog {
+        width: 18%;
+    }
 }
 
-.agent-prompt {
-    height: 85px;
-    padding: 0 20px;
-    margin-top: 25px;
-    color: #DDE5E6;
+@media only screen and (max-width: 600px) {
+    .outer-container {
+        width: 100% !important;
+    }
 }
+@media (min-width: 768px) {
+    .col-md-4 {
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
 
-.modal-footer button {
-    background-color: green;
-    color: white;
-}
+    .col-md-6 {
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
 
-button.btn-primary {
-    margin-bottom: 20px;
-}
-p {
-    font-family: 'Roboto', sans-serif;
-    text-align: left;
-}
-
-span.final{
-    color: black;
-}
-span.intermediate {
-    color: gray;
+    .col-md-3 {
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
 }
