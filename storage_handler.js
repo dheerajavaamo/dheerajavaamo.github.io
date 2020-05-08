@@ -38,6 +38,9 @@ function getStorage(url) {
                 if (obj.key == "location_1") {
                     var location = obj.value;
                 }
+                if (obj.key == "towed") {
+                    var towed = obj.value;
+                }
                 if (obj.key == "zip_code") {
                     var zip_code = obj.value;
                 }
@@ -72,6 +75,7 @@ function getStorage(url) {
             // $("#city").attr("value", city);
             // $("#state").attr("value", state);
             $("#location").attr("value", location);
+            $("#towed").attr("value", towed);
             // $("#zip-code").attr("value", zip_code);
             $("#phone").attr("value", phone);
             $("#datetime").attr("value", datetime);
