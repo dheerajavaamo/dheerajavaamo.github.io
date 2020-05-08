@@ -96,30 +96,3 @@ function initMessageHandler() {
       sendMessage("reset");
     }
 }
-
-function expandTextPopup(className) {
-  var text = $("." + className).html()
-  $('#textModal').find(".modal-body").append(text)
-  $('#textModal').modal('show');
-}
-
-function openSettingPage() {
-  $('.mainPage').hide();
-  $('.voiceTrainingPage').hide();
-  $('.settingPage').show();
-  $('footer').css('visibility', 'hidden');
-}
-
-function openMainPage() {
-  $('.settingPage').hide();
-  $('.voiceTrainingPage').hide();
-  $('.mainPage').show();
-  $('footer').css('visibility', 'visible');
-}
-
-function openVoiceTraining() {
-  $('.settingPage').hide();
-  $('.mainPage').hide();
-  $('.voiceTrainingPage').show();
-  $('footer').css('visibility', 'visible');
-}

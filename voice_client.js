@@ -142,7 +142,7 @@ function stopRecording() {
     socket.emit('endGoogleCloudStream', '');
 
     microphone.classList.remove("active");
-    if(dictation)sendMessage(dictation);
+    if(dictation && !isTraining) sendMessage(dictation);
     resetSpeechData();
 }
 
