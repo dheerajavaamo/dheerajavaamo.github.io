@@ -2,7 +2,7 @@ var isTraining = false;
 
 function expandTextPopup(className) {
     var text = $("." + className).html()
-    $('#textModal').find(".modal-body").append(text)
+    $('#textModal').find(".modal-body").html(text)
     $('#textModal').modal('show');
 }
 

@@ -37,7 +37,8 @@ let general_hints = [
     "email",
 ];
 let alpha_numeric_hints = ["$OOV_CLASS_ALPHANUMERIC_SEQUENCE"].concat(general_hints);
-let phone_number_hints = ["$OOV_CLASS_FULLPHONENUM"].concat(general_hints);
+let number_hints = ["$OOV_CLASS_DIGIT_SEQUENCE"].concat(general_hints);
+let zip_code_hint = ["$POSTALCODE"].concat(general_hints);
 
 const urlParams = new URLSearchParams(window.location.search);
 let user_locale = urlParams.get('user_locale') || localStorage.getItem("user_locale", "en-US") || "en-US";
