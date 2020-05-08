@@ -98,12 +98,6 @@
         </form>
         <div class="shadow-container"></div>
       </div>
-      <footer>
-        <div class="speech_output center" onclick="expandTextPopup('speech_output')"></div>
-        <div class="center" onclick="toggleSpeech()">
-          <i class="fa fa-microphone" aria-hidden="true"></i>
-        </div>
-      </footer>
     </div>
     <div class="settingPage">
       <div class="backIcon" onclick="openMainPage()">
@@ -174,12 +168,58 @@
           <div class="form-group">
             <h6>VOICE TRAING</h6>
             <p class="help-text">Train your assistance to recognize your voice</p>
-            <button class="btn-primary">TRAIN</button>
+            <button type="button" class="btn-primary" onclick="openVoiceTraining()">TRAIN</button>
           </div>
         </form>
       </div>
 
     </div>
+    <div class="voiceTrainingPage">
+      <div class="backIcon" onclick="openSettingPage()">
+        <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+      </div>
+      <div class="container">
+        <form class="voiceForm">
+          <h5>Voice Training</h5>
+          <p class="help-text">Train your voice models for precise voice matching.</p>
+          <hr/>
+          <div class="form-group">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox"
+                checked>
+              <label class="form-check-label">
+                Accident, insurance, car, Honda, Civic
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox">
+              <label class="form-check-label">
+                I was driving the car in north west direction
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox">
+              <label class="form-check-label">
+                Toyota, driving, License, yesterday
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox">
+              <label class="form-check-label">
+                Nobody was hurt
+              </label>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="empty"></div>
+    </div>
+    <footer>
+      <div class="speech_output center" onclick="expandTextPopup('speech_output')"></div>
+      <div class="center" onclick="toggleSpeech()">
+        <i class="fa fa-microphone" aria-hidden="true"></i>
+      </div>
+    </footer>
   </div>
 
   <div id="myModal" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
@@ -218,6 +258,7 @@
   <script>
     $('#myModal').modal('show');
     $('.settingPage').hide();
+    $('.voiceTrainingPage').hide();
   </script>
 
 </body>
