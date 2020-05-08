@@ -12,6 +12,8 @@ let emailReplacements = {
 
 let replacements = [emailReplacements];
 
+let processedUtterance = "";
+
 //================= CONFIG =================
 // Stream Audio
 var bufferSize = 2048,
@@ -148,8 +150,8 @@ function stopRecording() {
 
     microphone.classList.remove("active");
 
-    let message = diagnostic.innerText;
-    if(message && !isTraining) sendMessage(message);
+    if(processedUtterance && !isTraining) sendMessage(processedUtterance);
+    processedUtterance = "";
     resetSpeechData();
 }
 
@@ -196,7 +198,7 @@ socket.on('speechData', function (data) {
             intermediateText += " " + transcript;
         }
     }
-    let processedUtterance = postProcessUtterance(dictation + " " + intermediateText);
+    processedUtterance = dictation + " " + intermediateText;
     
     diagnostic.innerHTML = "<span class='final'>" + processedUtterance + "</span>" + " <span class='intermediate'>" + "" + "</span>";
 });
