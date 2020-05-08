@@ -76,7 +76,7 @@ function handleAgentResponse(m){
         } else if(m.text.indexOf("phone number?") > -1 || m.text.indexOf("account number?") > -1){
           addNumberHint();
         }
-        else if(m.text.indexOf("zip code?")){
+        else if(m.text.indexOf("zip code?") > -1){
           addZipcodeHint();
         } else {
           addGeneralHints();
