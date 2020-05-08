@@ -89,6 +89,19 @@ function languageChanged(lang) {
     socket.emit('languageChanged', lang);
 }
 
+function addAlphaNumericHint(){
+    console.log("adding alpha numeric hint");
+    addHints(alpha_numeric_hints);
+}
+function addGeneralHints(){
+    console.log("adding general hints");
+    addHints(general_hints);
+}
+function addPhoneNumberHint(){
+    console.log("adding phone number hint");
+    addHints(phone_number_hints);
+}
+
 function addHints(hints) {
     socket.emit('hints', hints);
 }
@@ -98,6 +111,7 @@ function toggleSpeech(){
         stopRecording();
     }
     else{
+        stopSpeech();
         startRecording();
     }
 }
@@ -153,36 +167,7 @@ socket.on('connect', function (data) {
 socket.on('messages', function (data) {
     console.log("Socket connected");
     languageChanged(user_locale);
-    addHints([
-        "Sriram",
-        "Chakravarthi",
-        "Madhav",
-        "Vodnala",
-        "insurance",
-        "auto insurance",
-        "email",
-        "account",
-        "account number",
-        "drivers",
-        "drivers license",
-        "city",
-        "state",
-        "country",
-        "civic",
-        "honda",
-        "hyundai",
-        "phone",
-        "hurt",
-        "stark",
-        "accident",
-        "got",
-        "luckily",
-        "driver",
-        "license",
-        "account",
-        "gmail",
-        "email",
-    ]);
+    addHints(general_hints);
 });
 
 socket.on('speechData', function (data) {

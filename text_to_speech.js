@@ -69,3 +69,12 @@ function readThis(location, onComplete, onSpeechComplete){
 function playAudio(){
     audioElement.play();
 }
+
+function stopSpeech(){
+    if(isReading){
+        audioElement.pause();
+        audioElement.src = "";
+        isReading = false;
+        readQueue.length = 0;
+    }
+}

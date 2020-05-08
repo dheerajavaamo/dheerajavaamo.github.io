@@ -67,6 +67,13 @@ function handleAgentResponse(m){
         let newMessage = document.createElement("p");
         newMessage.innerText = m.text;
         agentResponse.appendChild(newMessage);
+        if (m.text.indexOf("license?") > -1 || m.text.indexOf("account number?") > -1) {
+          addAlphaNumericHint();
+        } else if(m.text.indexOf("phone number?") > -1){
+          addPhoneNumberHint();
+        }else {
+          addGeneralHints();
+        }
         if(!window.disable_speech){
           speak(m.text, () => {
             // toggleSpeech();

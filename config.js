@@ -6,6 +6,38 @@ let bot_id = 3722;
 let channel_uuid= "73c36068-d8c6-4c01-b2da-1fdfe3ccf85e";
 let custom_channel_url = "https://c7.avaamo.com/bot_connector_webhooks/006b759f-583d-477e-ae54-5544d78e6f29/message.json";
 
+let general_hints = [
+    "Sriram",
+    "Chakravarthi",
+    "Madhav",
+    "Vodnala",
+    "insurance",
+    "auto insurance",
+    "email",
+    "account",
+    "account number",
+    "drivers",
+    "drivers license",
+    "city",
+    "state",
+    "country",
+    "civic",
+    "honda",
+    "hyundai",
+    "phone",
+    "hurt",
+    "stark",
+    "accident",
+    "got",
+    "luckily",
+    "driver",
+    "license",
+    "account",
+    "gmail",
+    "email",
+];
+let alpha_numeric_hints = ["$OOV_CLASS_ALPHANUMERIC_SEQUENCE"].concat(general_hints);
+let phone_number_hints = ["$OOV_CLASS_FULLPHONENUM"].concat(general_hints);
 
 const urlParams = new URLSearchParams(window.location.search);
 let user_locale = urlParams.get('user_locale') || localStorage.getItem("user_locale", "en-US") || "en-US";
