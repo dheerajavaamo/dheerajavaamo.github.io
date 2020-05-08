@@ -41,6 +41,10 @@ function getStorage(url) {
                 if (obj.key == "towed") {
                     var towed = obj.value;
                 }
+                if (obj.key == "other_vehicle_information") {
+                    var other_vehicle_information = obj.value;
+                }
+                
                 if (obj.key == "zip_code") {
                     var zip_code = obj.value;
                 }
@@ -76,6 +80,7 @@ function getStorage(url) {
             // $("#state").attr("value", state);
             $("#location").attr("value", location);
             $("#towed").attr("value", towed);
+            $("#other_vehicle_information").attr("value", other_vehicle_information);
             // $("#zip-code").attr("value", zip_code);
             $("#phone").attr("value", phone);
             $("#datetime").attr("value", datetime);
