@@ -43,7 +43,7 @@ hr {
     overflow: hidden;
 }
 .form-wrap {
-    height: calc(100% - 310px);
+    height: calc(100% - 120px);
 }
 .center {
     text-align: center;
@@ -167,13 +167,14 @@ p {
     animation: shadow-pulse 1s infinite;
 }
 .mainPage,
-.settingPage {
-    height: 100%;
-    width: 100%
+.settingPage,
+.voiceTrainingPage {
+    height: 75%;
+    width: 100%;
 }
 .settingIcon {
     position: absolute;
-    top: -15px;
+    top: -10px;
     right: 10px;
     z-index: 5;
     font-size: 22px;
@@ -182,38 +183,67 @@ p {
 }
 .backIcon {
     position: absolute;
-    top: -15px;
-    left: 10px;
+    top: -10px;
+    left: 2px;
     z-index: 5;
     font-size: 22px;
     color: white;
     padding: 10px;
 }
 
-.settingForm {
+.settingForm,
+.voiceForm {
     margin-top: 25px;
 }
 h3, h6, h4, h5 {
     color: white;
 }
 .settingForm .form-group label,
-.settingForm .form-group p {
+.settingForm p,
+.voiceForm .form-group label,
+.voiceForm p,
+.settingForm .form-group input,
+.voiceForm .form-group input {
     color: white;
 }
-.settingForm .form-group h6 {
+.settingForm .form-group h6,
+.voiceForm .form-group h6 {
     font-size: 12px;
     opacity: 0.46;
 }
-.settingForm .form-group .help-text {
+.settingForm .help-text,
+.voiceForm .help-text {
     font-size: 14px;
 }
 .settingForm .form-group label {
     font-size: 15px;
 }
-.settingForm .form-group input {
-    color: white;
+.voiceForm .form-group label {
+    font-size: 18px;
 }
-
+.voiceForm .form-check input[type=checkbox] {
+    transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+}
+.voiceForm .form-check {
+    margin: 10px 0;
+}
+.voiceForm .form-check label {
+    opacity: 0.21;
+    letter-spacing: 0px;
+    margin-left: 10px;
+}
+.voiceForm .form-check .form-check-input {
+    opacity: 0.21;
+}
+.voiceForm .form-check input[type=checkbox]:checked,
+.voiceForm .form-check input[type=checkbox]:checked+label {
+    opacity: 1;
+}
+.settingPage footer {
+    visibility: hidden;
+}
 
 @media screen and (min-width: 800px) {
     #overlay-image {
