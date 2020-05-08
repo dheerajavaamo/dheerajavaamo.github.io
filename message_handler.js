@@ -3,7 +3,9 @@ let agentResponse = document.querySelector(".agent-prompt");
 let avaamo_id;
 let storage_url;
 
-let user_uuid = function uuid4() {
+let existing_user_uuid = null; //localStorage.getItem("user_uuid");
+let isExistingUser = existing_user_uuid;
+let user_uuid = existing_user_uuid || function uuid4() {
     var uuid = '',
     ii;
     for (ii = 0; ii < 32; ii += 1) {
@@ -27,6 +29,8 @@ let user_uuid = function uuid4() {
     }
     return uuid;
   }();
+
+  localStorage.setItem("user_uuid", user_uuid);
 
 function sendMessage(message) {
     // Avaamo.sendMessage(message);
@@ -85,7 +89,12 @@ function handleAgentResponse(m){
 }
 
 function initMessageHandler() {
-    sendMessage("reset");
+    if(isExistingUser){
+      sendMessage("existing_user");
+    }
+    else{
+      sendMessage("reset");
+    }
 }
 
 function expandTextPopup(className) {
