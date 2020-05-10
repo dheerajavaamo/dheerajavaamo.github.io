@@ -41,20 +41,6 @@ function changeLang() {
         $("#Matthew, #Joanna").parent().hide();
         $("#Takumi, #Mizuki").parent().show();
 
-        if(user_locale != "en-US"){
-            user_locale = "en-US";
-            agent_locale = "en-US";
-            persona = "Joanna";
-            localStorage.setItem("agent_locale", agent_locale);
-            localStorage.setItem("persona", persona);
-        }
-    } else {
-        lang = 'en';
-        localStorage.setItem("lang", lang);
-        $(".langSwitch span").html('Japanese');
-        $("#Takumi, #Mizuki").parent().hide();
-        $("#Matthew, #Joanna").parent().show();
-
         if(user_locale != "ja-JP"){
             user_locale = "ja-JP";
             agent_locale = "ja-JP";
@@ -62,6 +48,22 @@ function changeLang() {
             localStorage.setItem("agent_locale", agent_locale);
             localStorage.setItem("persona", persona);
         }
+        
+    } else {
+        lang = 'en';
+        localStorage.setItem("lang", lang);
+        $(".langSwitch span").html('Japanese');
+        $("#Takumi, #Mizuki").parent().hide();
+        $("#Matthew, #Joanna").parent().show();
+
+        if(user_locale != "en-US"){
+            user_locale = "en-US";
+            agent_locale = "en-US";
+            persona = "Joanna";
+            localStorage.setItem("agent_locale", agent_locale);
+            localStorage.setItem("persona", persona);
+        }
+        
     }
 
     $("[data-localize]").localize("local", {
