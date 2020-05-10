@@ -34,7 +34,8 @@ let user_uuid = existing_user_uuid || function uuid4() {
 
 function sendMessage(message) {
     // Avaamo.sendMessage(message);
-    fetch(proxyurl + custom_channel_url, {
+    translateIfRequired(message, "en-US", user_locale).then(message => {
+      fetch(proxyurl + custom_channel_url, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -48,10 +49,27 @@ function sendMessage(message) {
               "text": message
             }
           })
-    }).then(res => res.json()).then(json => {
-        console.log(json);
-        json.incoming_message.bot_replies.forEach(handleAgentResponse);
+      }).then(res => res.json()).then(json => {
+          console.log(json);
+          json.incoming_message.bot_replies.forEach(handleAgentResponse);
+      });
     });
+    
+}
+
+async function translateIfRequired(message, target_language, source_language){
+  console.log("message, target_language, source_language", message, target_language, source_language);
+  if(source_language != target_language){
+    let translatedText = "ja-JP" == target_language ? await translateToJapanese(message) : await translateToJapanese(message);
+    if(translatedText){
+      message = translatedText;
+      console.log("Translated text", message);
+    }
+    else{
+      console.log("Translation failed");
+    }
+  }
+  return message;
 }
 
 
@@ -68,25 +86,28 @@ function handleAgentResponse(m){
         agentResponse.innerHTML = "";
     }
     if(m.text){
+      translateIfRequired(m.text, user_locale, "en-US").then(message => {
+        console.log("Got translated message", message);
         let newMessage = document.createElement("p");
-        newMessage.innerText = m.text;
+        newMessage.innerText = message;
         agentResponse.appendChild(newMessage);
-        if (m.text.indexOf("license?") > -1) {
+        if (message.indexOf("license?") > -1) {
           addAlphaNumericHint();
-        } else if(m.text.indexOf("phone number?") > -1 || m.text.indexOf("account number?") > -1){
+        } else if(message.indexOf("phone number?") > -1 || message.indexOf("account number?") > -1){
           addNumberHint();
         }
-        else if(m.text.indexOf("zip code?") > -1){
+        else if(message.indexOf("zip code?") > -1){
           addZipcodeHint();
         } else {
           addGeneralHints();
         }
         if(!window.disable_speech){
-          speak(m.text, () => {
+          console.log("Speaking message", message);
+          speak(message, () => {
             // toggleSpeech();
           });
         }
-
+      });
     }
 
 }

@@ -45,6 +45,19 @@ let user_locale = urlParams.get('user_locale') || localStorage.getItem("user_loc
 let agent_locale = urlParams.get('agent_locale') || localStorage.getItem("agent_locale", "en-US") || "en-US";
 
 let persona = urlParams.get('persona') || localStorage.getItem("persona", "Joanna") || "Joanna";
+var lang = urlParams.get('lang') || localStorage.getItem("lang", "en") || "en";
+if(lang == "en"){
+    if(user_locale != "en-US"){
+        user_locale = "en-US";
+        agent_locale = "en-US";
+        persona = "Joanna";
+    }
+}
+else if(user_locale != "ja-JP"){
+    user_locale = "ja-JP";
+    agent_locale = "ja-JP";
+    persona = "Takumi";
+}
 
 const idle_timeout = 5000;
 
@@ -55,6 +68,8 @@ function createVariablesFromParams(){
 }
 
 createVariablesFromParams();
+
+let translation_url = `https://api.deepl.com/v2/translate`;
 
 function onPersonaSelected(selectedPersona){
     persona = selectedPersona;
