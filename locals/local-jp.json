@@ -8,6 +8,7 @@
     "zip_code": "郵便番号",
     "location": "事故発生場所",
     "towed": "車両はレッカー移動されていましたか？",
+    "other_vehicle_information": "その他の車両情報",
     "phone_number": "電話番号",
     "incident_date": "発生日時",
     "car_manufacturer": "自動車メーカー",

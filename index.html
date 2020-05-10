@@ -5,6 +5,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
   <script src="./RecordRTC.min.js"></script>
   <script src="./config.js"></script>
+  <script src="./translator.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
   integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
 
@@ -65,6 +66,10 @@
             <div class="col-md-4 mb-3">
               <label for="towed" data-localize="main.towed">Was the vehicle towed?</label>
               <input type="text" class="form-control form-control-lg" id="towed" />
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="other_vehicle_information" data-localize="main.other_vehicle_information">Other vehicle information</label>
+              <textarea class="form-control form-control-lg" id="other_vehicle_information" rows="3"></textarea>
             </div>
           </div>
           <div class="form-group">
@@ -259,7 +264,6 @@
   <script src="./voice_client.js"></script>
   <script>
     $(document).ready(function(){
-      var lang = urlParams.get('lang') || localStorage.getItem("lang", "en") || "en";
       $(".langSwitch span").html('英語');
       $("[data-localize]").localize("local", { language: lang, pathPrefix: "./locals" })
       $('#myModal').modal('show');
@@ -274,6 +278,7 @@
       }
     });
   </script>
+  <script src="./chrono.min.js"></script>
 
 </body>
 

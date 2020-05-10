@@ -35,23 +35,35 @@ function openVoiceTraining() {
 function changeLang() {
     var lang = urlParams.get('lang') || localStorage.getItem("lang", "en") || "en";
     if (lang == 'en') {
-        lang = 'jp'
-        localStorage.setItem("lang", lang)
+        lang = 'jp';
+        localStorage.setItem("lang", lang);
         $(".langSwitch span").html('英語');
         $("#Matthew, #Joanna").parent().hide();
         $("#Takumi, #Mizuki").parent().show();
+
+        if(user_locale != "en-US"){
+            user_locale = "en-US";
+            agent_locale = "en-US";
+            persona = "Joanna";
+        }
     } else {
-        lang = 'en'
-        localStorage.setItem("lang", lang)
+        lang = 'en';
+        localStorage.setItem("lang", lang);
         $(".langSwitch span").html('Japanese');
         $("#Takumi, #Mizuki").parent().hide();
         $("#Matthew, #Joanna").parent().show();
+
+        if(user_locale != "ja-JP"){
+            user_locale = "ja-JP";
+            agent_locale = "ja-JP";
+            persona = "Takumi";
+        }
     }
 
     $("[data-localize]").localize("local", {
         language: lang,
         pathPrefix: "./locals"
-    })
+    });
 
 }
 

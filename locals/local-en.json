@@ -8,6 +8,7 @@
     "zip_code": "Zip code",
     "location": "Accident Location",
     "towed": "Was the vehicle towed?",
+    "other_vehicle_information": "Other vehicle information",
     "phone_number": "Phone Number",
     "incident_date": "Incident date and time",
     "car_manufacturer": "Car manufacturer",
