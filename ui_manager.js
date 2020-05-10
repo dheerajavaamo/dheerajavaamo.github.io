@@ -31,3 +31,8 @@ function openVoiceTraining() {
     $('footer').css('visibility', 'visible');
     isTraining = true;
 }
+
+function changeLang() {
+
+}
+

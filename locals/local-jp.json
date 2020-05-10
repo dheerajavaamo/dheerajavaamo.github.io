@@ -1,0 +1,50 @@
+{
+  "main": {
+    "name": "名前",
+    "account_number": "口座番号",
+    "license": "運転免許",
+    "city": "都市名",
+    "state": "状態",
+    "zip_code": "郵便番号",
+    "phone_number": "電話番号",
+    "incident_date": "発生日時",
+    "car_manufacturer": "自動車メーカー",
+    "car_model": "車のモデル",
+    "accident_details": "事故内容",
+    "submit": "フォームの送信"
+  },
+  "setting": {
+    "title": "設定",
+    "assistance_voice": {
+      "title": "アシスタンスボイス",
+      "help_text": "アシスタントが応答する際に使用する音声を選択します。",
+      "joey": "ジョーイ",
+      "joanna": "ジョアンナ",
+      "matthew": "マシュー",
+      "takumi": "たくみ"
+    },
+    "language_locale": {
+      "title": "げんごロケール",
+      "help_text": "アシスタントと話すための言語とロケールを選択します。",
+      "english_us": "英語（米国",
+      "english_au": "英語 (AU)",
+      "english_ind": "英語（インド",
+      "japanese": "にほんご"
+    },
+    "voice_train": {
+      "title": "ボイストレーニング",
+      "help_text": "自分の声を認識するためにアシスタントを訓練する",
+      "submit": "トレーニング",
+      "description": "音声モデルをトレーニングして、正確な音声マッチングを実現します。",
+      "train_sentense1": "事故, 保険, 車, ホンダ, シビック",
+      "train_sentense2": "北西方向に車を走らせていました。",
+      "train_sentense3": "トヨタ、運転、免許、昨日",
+      "train_sentense4": "誰も傷つかなかった"
+    }
+  },
+  "welcome_popup": {
+    "text": "こんにちは、保険請求書の記入をお手伝いします。",
+    "submit": "始めよう",
+    "close": "クローズ"
+  }
+}
