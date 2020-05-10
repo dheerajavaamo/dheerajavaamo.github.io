@@ -8,6 +8,7 @@
     "zip_code": "Zip code",
     "location": "Accident Location",
     "towed": "Was the vehicle towed?",
+    "other_vehicle_information": "Other vehicle information",
     "phone_number": "Phone Number",
     "incident_date": "Incident date and time",
     "car_manufacturer": "Car manufacturer",
@@ -19,7 +20,7 @@
     "title": "Settings",
     "assistance_voice": {
       "title": "ASSISTANCE VOICE",
-      "help_text": "Choose the voice your Assitant will use to respond to you",
+      "help_text": "Choose the voice your Assistant will use to respond to you",
       "joey": "Joey",
       "joanna": "Joanna",
       "matthew": "Matthew",
