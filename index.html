@@ -3,16 +3,17 @@
 
 <head>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
-  <script src="./ui_manager.js"></script>
   <script src="./RecordRTC.min.js"></script>
   <script src="./config.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./style.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="./jquery.localize.min.js"></script>
+  <script src="./ui_manager.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <script src="./storage_handler.js"></script>
   <title>Auto Insurance</title>
@@ -29,6 +30,9 @@
       <div class="settingIcon" onclick="openSettingPage()">
         <i class="fa fa-cog" aria-hidden="true"></i>
       </div>
+      <!-- <div class="langSwitch" onclick="changeLang()">
+        <span>English-US<span>
+      </div> -->
       <audio id="reader" style="visibility: hidden;"></audio>
       <div class="container">
         <div class="agent-prompt center" onclick="expandTextPopup('agent-prompt')"></div>
@@ -38,28 +42,28 @@
         <form class="form" novalidate>
           <div class="form-group">
             <div class="col-md-4 mb-3">
-              <label for="first-name">Name</label>
+              <label for="first-name" data-localize="main.name">Name</label>
               <input type="text" class="form-control form-control-lg" id="first-name" />
             </div>
           </div>
           <div class="form-group">
             <div class="col-md-3 mb-3">
-              <label for="account-number">Account number</label>
+              <label for="account-number" data-localize="main.account_number">Account Number</label>
               <input type="text" class="form-control form-control-lg" id="account-number" />
             </div>
             <div class="col-md-3 mb-3">
-              <label for="drivers-license">Driver's license</label>
+              <label for="drivers-license" data-localize="main.license">Driver's License</label>
               <input type="text" class="form-control form-control-lg" id="drivers-license" />
             </div>
           </div>
           <hr />
           <div class="form-group">
             <div class="col-md-4 mb-3">
-              <label for="location">Accident Location</label>
+              <label for="location" data-localize="main.location">Accident Location</label>
               <input type="text" class="form-control form-control-lg" id="location" />
             </div>
             <div class="col-md-4 mb-3">
-              <label for="towed">Was the vehicle towed?</label>
+              <label for="towed" data-localize="main.towed">Was the vehicle towed?</label>
               <input type="text" class="form-control form-control-lg" id="towed" />
             </div>
             <div class="col-md-4 mb-3">
@@ -69,32 +73,32 @@
           </div>
           <div class="form-group">
             <div class="col-md-6 mb-3">
-              <label for="phone">Phone Number</label>
+              <label for="phone" data-localize="main.phone_number">Phone Number</label>
               <input type="text" class="form-control form-control-lg" id="phone" />
             </div>
           </div>
           <div class="form-group">
             <div class="col-md-4 mb-3">
-              <label for="datetime">Incident date and time</label>
+              <label for="datetime" data-localize="main.incident_date">Incident date and time</label>
               <input type="text" class="form-control form-control-lg" id="datetime" value="" />
             </div>
             <div class="col-md-4 mb-3">
-              <label for="car-make">Car manufacturer</label>
+              <label for="car-make" data-localize="main.car_manufacturer">Car manufacturer</label>
               <input type="text" class="form-control form-control-lg" id="car-make" value="" />
             </div>
             <div class="col-md-4 mb-3">
-              <label for="car-model">Car model</label>
+              <label for="car-model" data-localize="main.car_model">Car model</label>
               <input type="text" class="form-control form-control-lg" id="car-model" value="" />
             </div>
           </div>
           <div class="form-group">
             <div class="col-md-4 mb-3">
-              <label for="accident-details">Accident details</label>
-              <textarea class="form-control form-control-lg" id="accident-details" rows="3" value="hey there"></textarea>
+              <label for="accident-details" data-localize="main.accident_details">Accident details</label>
+              <textarea class="form-control form-control-lg" id="accident-details" rows="3" value=""></textarea>
             </div>
           </div>
           <div class="col-md-6 mb-3">
-            <button class="btn btn-primary" type="submit">Submit form</button>
+            <button class="btn btn-primary" type="submit" data-localize="main.submit">Submit form</button>
           </div>
         </form>
         <div class="shadow-container"></div>
@@ -106,70 +110,73 @@
       </div>
       <div class="container">
         <form class="settingForm">
-          <h5>Settings</h5>
+          <h5 data-localize="setting.title">Settings</h5>
           <hr/>
           <div class="form-group">
-            <h6>ASSISTANCE VOICE</h6>
-            <p class="help-text">Choose the voice your Assistant will use to respond to you</p>
+            <h6 data-localize="setting.assistance_voice.title">ASSISTANCE VOICE</h6>
+            <p class="help-text" data-localize="setting.assistance_voice.help_text">Choose the voice your Assitant will use to respond to you</p>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="persona" id="Joey" value="Joey" onclick="onPersonaSelected('Joey')">
-              <label class="form-check-label" for="Joey">
+              <label class="form-check-label" for="Joey" data-localize="setting.assistance_voice.joey">
                 Joey
               </label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="persona" id="Joanna" value="Joanna" checked onclick="onPersonaSelected('Joanna')">
-              <label class="form-check-label" for="Joanna">
+              <label class="form-check-label" for="Joanna" data-localize="setting.assistance_voice.joanna">
                 Joanna
               </label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="persona" id="Matthew" value="Matthew" onclick="onPersonaSelected('Matthew')">
-              <label class="form-check-label" for="Matthew">
+              <label class="form-check-label" for="Matthew" data-localize="setting.assistance_voice.matthew">
                 Matthew
               </label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="persona" id="Takumi" value="Takumi" onclick="onPersonaSelected('Takumi')">
-              <label class="form-check-label" for="Takumi">
+              <label class="form-check-label" for="Takumi" data-localize="setting.assistance_voice.takumi">
                 Takumi
               </label>
             </div>
           </div>
           <hr />
           <div class="form-group">
-            <h6>LANGUAGE AND LOCALE</h6>
-            <p class="help-text">Choose language and locale for speaking to your Assistant</p>
+            <h6 data-localize="setting.language_locale.title">LANGUAGE AND LOCALE</h6>
+            <p class="help-text" data-localize="setting.language_locale.help_text">Choose language and locale for speaking
+              to your Assistant
+            </p>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="user_locale" id="en-US" value="en-US" checked onclick="onUserLocaleSelected('en-US')">
-              <label class="form-check-label" for="en-US">
+              <label class="form-check-label" for="en-US" data-localize="setting.language_locale.english_us">
                 English (US)
               </label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="user_locale" id="en-GB" value="en-AU" onclick="onUserLocaleSelected('en-GB')">
-              <label class="form-check-label" for="en-GB">
+              <label class="form-check-label" for="en-GB" data-localize="setting.language_locale.english_au">
                 English (AU)
               </label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="user_locale" id="en-IN" value="en-IN" onclick="onUserLocaleSelected('en-IN')">
-              <label class="form-check-label" for="en-IN">
+              <label class="form-check-label" for="en-IN" data-localize="setting.language_locale.english_ind">
                 English (IND)
               </label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="user_locale" id="ja-JP" value="ja-JP" onclick="onUserLocaleSelected('ja-JP')">
-              <label class="form-check-label" for="ja-JP">
+              <label class="form-check-label" for="ja-JP" data-localize="setting.language_locale.japanese">
                 Japanese
               </label>
             </div>
           </div>
           <hr />
           <div class="form-group">
-            <h6>VOICE TRAING</h6>
-            <p class="help-text">Train your assistance to recognize your voice</p>
-            <button type="button" class="btn-primary" onclick="openVoiceTraining()">TRAIN</button>
+            <h6 class="text-uppercase" data-localize="setting.voice_train.title">VOICE TRAINING</h6>
+            <p class="help-text" data-localize="setting.voice_train.help_text">Train your assistance to recognize your voice</p>
+            <button type="button" class="btn-primary text-uppercase" onclick="openVoiceTraining()"
+              data-localize="setting.voice_train.submit">TRAIN</button>
           </div>
         </form>
       </div>
@@ -181,39 +188,39 @@
       </div>
       <div class="container">
         <form class="voiceForm">
-          <h5>Voice Training</h5>
-          <p class="help-text">Train your voice models for precise voice matching.</p>
+          <h5 data-localize="setting.voice_train.title">Voice Training</h5>
+          <p class="help-text" data-localize="setting.voice_train.description">Train your voice models for precise voice
+            matching.</p>
           <hr/>
           <div class="form-group">
             <div class="form-check">
               <input class="form-check-input" type="checkbox"
                 checked>
-              <label class="form-check-label">
+              <label class="form-check-label" data-localize="setting.voice_train.train_sentense1">
                 Accident, insurance, car, Honda, Civic
               </label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="checkbox">
-              <label class="form-check-label">
+              <label class="form-check-label" data-localize="setting.voice_train.train_sentense2">
                 I was driving the car in north west direction
               </label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="checkbox">
-              <label class="form-check-label">
+              <label class="form-check-label" data-localize="setting.voice_train.train_sentense3">
                 Toyota, driving, License, yesterday
               </label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="checkbox">
-              <label class="form-check-label">
+              <label class="form-check-label" data-localize="setting.voice_train.train_sentense4">
                 Nobody was hurt
               </label>
             </div>
           </div>
         </form>
       </div>
-      <div class="empty"></div>
     </div>
     <footer>
       <div class="speech_output center" onclick="expandTextPopup('speech_output')"></div>
@@ -227,11 +234,12 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-body">
-          <p>Hello, I can help you fill out an insurance claim.</p>
+          <p data-localize="welcome_popup.text">Hello, I can help you fill out an insurance claim.</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default btn-primary" data-dismiss="modal"
-            onclick="initMessageHandler();initRecording();playAudio();setCheckedStatus()">Let's get started</button>
+            onclick="initMessageHandler();initRecording();playAudio();setCheckedStatus()"
+            data-localize="welcome_popup.submit">Let's get started</button>
         </div>
       </div>
     </div>
@@ -242,7 +250,8 @@
         <div class="modal-body">
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default btn-primary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default btn-primary" data-dismiss="modal"
+            data-localize="welcome_popup.close">Close</button>
         </div>
       </div>
     </div>
@@ -257,9 +266,13 @@
   <script src="./message_handler.js"></script>
   <script src="./voice_client.js"></script>
   <script>
-    $('#myModal').modal('show');
-    $('.settingPage').hide();
-    $('.voiceTrainingPage').hide();
+    $(document).ready(function(){
+      var lang = urlParams.get('lang') || localStorage.getItem("lang", "en") || "en";
+      $("[data-localize]").localize("local", { language: lang, pathPrefix: "./locals" })
+      $('#myModal').modal('show');
+      $('.settingPage').hide();
+      $('.voiceTrainingPage').hide();
+    });
   </script>
 
 </body>
