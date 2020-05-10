@@ -56,7 +56,7 @@ if(lang == "en"){
 else if(user_locale != "ja-JP"){
     user_locale = "ja-JP";
     agent_locale = "ja-JP";
-    persona = "Takumi";
+    persona = "Mizuki";
 }
 
 const idle_timeout = 5000;

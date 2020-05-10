@@ -58,7 +58,7 @@ function changeLang() {
         if(user_locale != "ja-JP"){
             user_locale = "ja-JP";
             agent_locale = "ja-JP";
-            persona = "Takumi";
+            persona = "Mizuki";
             localStorage.setItem("agent_locale", agent_locale);
             localStorage.setItem("persona", persona);
         }
