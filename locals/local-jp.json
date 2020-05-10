@@ -20,10 +20,13 @@
     "assistance_voice": {
       "title": "アシスタンスボイス",
       "help_text": "アシスタントが応答する際に使用する音声を選択します。",
+      "male": "男性",
+      "female": "女性",
       "joey": "ジョーイ",
       "joanna": "ジョアンナ",
       "matthew": "マシュー",
-      "takumi": "たくみ"
+      "takumi": "たくみ",
+      "mizuki": "みずき"
     },
     "language_locale": {
       "title": "げんごロケール",

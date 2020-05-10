@@ -112,27 +112,29 @@
             <h6 data-localize="setting.assistance_voice.title">ASSISTANCE VOICE</h6>
             <p class="help-text" data-localize="setting.assistance_voice.help_text">Choose the voice your Assitant will use to respond to you</p>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="persona" id="Joey" value="Joey" onclick="onPersonaSelected('Joey')">
-              <label class="form-check-label" for="Joey" data-localize="setting.assistance_voice.joey">
-                Joey
+              <input class="form-check-input" type="radio" name="persona" id="Matthew" value="Matthew" onclick="onPersonaSelected('Matthew')">
+              <label class="form-check-label" for="Matthew" data-localize="setting.assistance_voice.male">
+                Male
               </label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="persona" id="Joanna" value="Joanna" checked onclick="onPersonaSelected('Joanna')">
-              <label class="form-check-label" for="Joanna" data-localize="setting.assistance_voice.joanna">
-                Joanna
+              <label class="form-check-label" for="Joanna" data-localize="setting.assistance_voice.female">
+                Female
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="persona" id="Matthew" value="Matthew" onclick="onPersonaSelected('Matthew')">
-              <label class="form-check-label" for="Matthew" data-localize="setting.assistance_voice.matthew">
-                Matthew
+              <input class="form-check-input" type="radio" name="persona" id="Takumi" value="Takumi"
+                onclick="onPersonaSelected('Takumi')">
+              <label class="form-check-label" for="Takumi" data-localize="setting.assistance_voice.male">
+                Male
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="persona" id="Takumi" value="Takumi" onclick="onPersonaSelected('Takumi')">
-              <label class="form-check-label" for="Takumi" data-localize="setting.assistance_voice.takumi">
-                Takumi
+              <input class="form-check-input" type="radio" name="persona" id="Mizuki" value="Mizuki"
+                onclick="onPersonaSelected('Mizuki')">
+              <label class="form-check-label" for="Mizuki" data-localize="setting.assistance_voice.female">
+                Female
               </label>
             </div>
           </div>
@@ -146,12 +148,6 @@
               <input class="form-check-input" type="radio" name="user_locale" id="en-US" value="en-US" checked onclick="onUserLocaleSelected('en-US')">
               <label class="form-check-label" for="en-US" data-localize="setting.language_locale.english_us">
                 English (US)
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="user_locale" id="en-GB" value="en-AU" onclick="onUserLocaleSelected('en-GB')">
-              <label class="form-check-label" for="en-GB" data-localize="setting.language_locale.english_au">
-                English (AU)
               </label>
             </div>
             <div class="form-check">
@@ -271,8 +267,10 @@
       $('.voiceTrainingPage').hide();
       if (lang == 'jp') {
         $(".langSwitch span").html('英語');
+        $("#Matthew, #Joanna").parent().hide();
       } else {
         $(".langSwitch span").html('Japanese');
+        $("#Takumi, #Mizuki").parent().hide();
       }
     });
   </script>

@@ -20,10 +20,13 @@
     "assistance_voice": {
       "title": "ASSISTANCE VOICE",
       "help_text": "Choose the voice your Assitant will use to respond to you",
+      "male": "Male",
+      "female": "Female",
       "joey": "Joey",
       "joanna": "Joanna",
       "matthew": "Matthew",
-      "takumi": "Takumi"
+      "takumi": "Takumi",
+      "mizuki": "Mizuki"
     },
     "language_locale": {
       "title": "LANGUAGE AND LOCALE",

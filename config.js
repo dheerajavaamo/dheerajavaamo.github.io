@@ -49,7 +49,7 @@ let persona = urlParams.get('persona') || localStorage.getItem("persona", "Joann
 const idle_timeout = 5000;
 
 function createVariablesFromParams(){
-    for(var key of urlParams.keys()) { 
+    for(var key of urlParams.keys()) {
         window[key] = urlParams.get(key);
     }
 }
@@ -65,6 +65,7 @@ function onPersonaSelected(selectedPersona){
             agent_locale = "en-US";
             break;
         case "Takumi":
+        case "Mizuki":
             agent_locale = "ja-JP";
     }
     localStorage.setItem("agent_locale", agent_locale);

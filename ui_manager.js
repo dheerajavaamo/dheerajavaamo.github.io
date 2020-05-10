@@ -38,10 +38,14 @@ function changeLang() {
         lang = 'jp'
         localStorage.setItem("lang", lang)
         $(".langSwitch span").html('英語');
+        $("#Matthew, #Joanna").parent().hide();
+        $("#Takumi, #Mizuki").parent().show();
     } else {
         lang = 'en'
         localStorage.setItem("lang", lang)
         $(".langSwitch span").html('Japanese');
+        $("#Takumi, #Mizuki").parent().hide();
+        $("#Matthew, #Joanna").parent().show();
     }
 
     $("[data-localize]").localize("local", {
