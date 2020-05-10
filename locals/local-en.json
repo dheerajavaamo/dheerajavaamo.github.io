@@ -1,0 +1,52 @@
+{
+  "main": {
+    "name": "Name",
+    "account_number": "Account number",
+    "license": "Driver's license",
+    "city": "City",
+    "state": "State",
+    "zip_code": "Zip code",
+    "location": "Accident Location",
+    "towed": "Was the vehicle towed?",
+    "phone_number": "Phone Number",
+    "incident_date": "Incident date and time",
+    "car_manufacturer": "Car manufacturer",
+    "car_model": "Car model",
+    "accident_details": "Accident details",
+    "submit": "Submit form"
+  },
+  "setting": {
+    "title": "Settings",
+    "assistance_voice": {
+      "title": "ASSISTANCE VOICE",
+      "help_text": "Choose the voice your Assitant will use to respond to you",
+      "joey": "Joey",
+      "joanna": "Joanna",
+      "matthew": "Matthew",
+      "takumi": "Takumi"
+    },
+    "language_locale": {
+      "title": "LANGUAGE AND LOCALE",
+      "help_text": "Choose language and locale for speaking to your Assistant",
+      "english_us": "English (US)",
+      "english_au": "English (AU)",
+      "english_ind": "English (IND)",
+      "japanese": "Japanese"
+    },
+    "voice_train": {
+      "title": "Voice Training",
+      "help_text": "Train your assistance to recognize your voice",
+      "submit": "TRAIN",
+      "description": "Train your voice models for precise voice matching.",
+      "train_sentense1": "Accident, insurance, car, Honda, Civic",
+      "train_sentense2": "I was driving the car in north west direction",
+      "train_sentense3": "Toyota, driving, License, yesterday",
+      "train_sentense4": " Nobody was hurt"
+    }
+  },
+  "welcome_popup": {
+    "text": "Hello, I can help you fill out an insurance claim.",
+    "submit": "Let's get started",
+    "close": "Close"
+  }
+}
