@@ -71,11 +71,14 @@ function handleAgentResponse(m){
         let newMessage = document.createElement("p");
         newMessage.innerText = m.text;
         agentResponse.appendChild(newMessage);
-        if (m.text.indexOf("license?") > -1 || m.text.indexOf("account number?") > -1) {
+        if (m.text.indexOf("license?") > -1) {
           addAlphaNumericHint();
-        } else if(m.text.indexOf("phone number?") > -1){
-          addPhoneNumberHint();
-        }else {
+        } else if(m.text.indexOf("phone number?") > -1 || m.text.indexOf("account number?") > -1){
+          addNumberHint();
+        }
+        else if(m.text.indexOf("zip code?") > -1){
+          addZipcodeHint();
+        } else {
           addGeneralHints();
         }
         if(!window.disable_speech){

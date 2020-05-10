@@ -35,6 +35,12 @@ function getStorage(url) {
                 if (obj.key == "custom_state_1") {
                     var state = obj.value;
                 }
+                if (obj.key == "location_1") {
+                    var location = obj.value;
+                }
+                if (obj.key == "towed") {
+                    var towed = obj.value;
+                }
                 if (obj.key == "zip_code") {
                     var zip_code = obj.value;
                 }
@@ -66,9 +72,11 @@ function getStorage(url) {
             $("#first-name").attr("value", first_name);
             $("#account-number").attr("value", account_number);
             $("#drivers-license").attr("value", drivers_license);
-            $("#city").attr("value", city);
-            $("#state").attr("value", state);
-            $("#zip-code").attr("value", zip_code);
+            // $("#city").attr("value", city);
+            // $("#state").attr("value", state);
+            $("#location").attr("value", location);
+            $("#towed").attr("value", towed);
+            // $("#zip-code").attr("value", zip_code);
             $("#phone").attr("value", phone);
             $("#datetime").attr("value", datetime);
             $("#car-make").attr("value", car_make);

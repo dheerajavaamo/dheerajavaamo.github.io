@@ -12,6 +12,8 @@ let emailReplacements = {
 
 let replacements = [emailReplacements];
 
+let processedUtterance = "";
+
 //================= CONFIG =================
 // Stream Audio
 var bufferSize = 2048,
@@ -97,9 +99,14 @@ function addGeneralHints(){
     console.log("adding general hints");
     addHints(general_hints);
 }
-function addPhoneNumberHint(){
+function addNumberHint(){
     console.log("adding phone number hint");
-    addHints(phone_number_hints);
+    addHints(number_hints);
+}
+
+function addZipcodeHint(){
+    console.log("adding zipcode hint");
+    addHints(zip_code_hint);
 }
 
 function addHints(hints) {
@@ -142,7 +149,9 @@ function stopRecording() {
     socket.emit('endGoogleCloudStream', '');
 
     microphone.classList.remove("active");
-    if(dictation && !isTraining) sendMessage(dictation);
+
+    if(processedUtterance && !isTraining) sendMessage(processedUtterance);
+    processedUtterance = "";
     resetSpeechData();
 }
 
@@ -171,6 +180,9 @@ socket.on('messages', function (data) {
 });
 
 socket.on('speechData', function (data) {
+    if(!isRecording){
+        return;
+    }
     startIdleTimer();
     console.log("voice data", data);
 
@@ -186,7 +198,7 @@ socket.on('speechData', function (data) {
             intermediateText += " " + transcript;
         }
     }
-    let processedUtterance = postProcessUtterance(dictation + " " + intermediateText);
+    processedUtterance = dictation + " " + intermediateText;
     
     diagnostic.innerHTML = "<span class='final'>" + processedUtterance + "</span>" + " <span class='intermediate'>" + "" + "</span>";
 });

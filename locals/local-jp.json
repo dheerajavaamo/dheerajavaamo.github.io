@@ -6,6 +6,8 @@
     "city": "都市名",
     "state": "状態",
     "zip_code": "郵便番号",
+    "location": "事故発生場所",
+    "towed": "車両はレッカー移動されていましたか？",
     "phone_number": "電話番号",
     "incident_date": "発生日時",
     "car_manufacturer": "自動車メーカー",
