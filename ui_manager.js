@@ -33,6 +33,21 @@ function openVoiceTraining() {
 }
 
 function changeLang() {
+    var lang = urlParams.get('lang') || localStorage.getItem("lang", "en") || "en";
+    if (lang == 'en') {
+        lang = 'jp'
+        localStorage.setItem("lang", lang)
+        $(".langSwitch span").html('英語');
+    } else {
+        lang = 'en'
+        localStorage.setItem("lang", lang)
+        $(".langSwitch span").html('Japanese');
+    }
+
+    $("[data-localize]").localize("local", {
+        language: lang,
+        pathPrefix: "./locals"
+    })
 
 }
 

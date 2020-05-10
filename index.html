@@ -30,9 +30,9 @@
       <div class="settingIcon" onclick="openSettingPage()">
         <i class="fa fa-cog" aria-hidden="true"></i>
       </div>
-      <!-- <div class="langSwitch" onclick="changeLang()">
-        <span>English-US<span>
-      </div> -->
+      <div class="langSwitch" onclick="changeLang()">
+        <span>Japanese</span>
+      </div>
       <audio id="reader" style="visibility: hidden;"></audio>
       <div class="container">
         <div class="agent-prompt center" onclick="expandTextPopup('agent-prompt')"></div>
@@ -264,10 +264,16 @@
   <script>
     $(document).ready(function(){
       var lang = urlParams.get('lang') || localStorage.getItem("lang", "en") || "en";
+      $(".langSwitch span").html('英語');
       $("[data-localize]").localize("local", { language: lang, pathPrefix: "./locals" })
       $('#myModal').modal('show');
       $('.settingPage').hide();
       $('.voiceTrainingPage').hide();
+      if (lang == 'jp') {
+        $(".langSwitch span").html('英語');
+      } else {
+        $(".langSwitch span").html('Japanese');
+      }
     });
   </script>
 
