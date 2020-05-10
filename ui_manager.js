@@ -65,6 +65,7 @@ function changeLang() {
         }
         
     }
+    languageChanged();
 
     $("[data-localize]").localize("local", {
         language: lang,
