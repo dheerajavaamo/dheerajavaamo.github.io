@@ -45,6 +45,8 @@ function changeLang() {
             user_locale = "en-US";
             agent_locale = "en-US";
             persona = "Joanna";
+            localStorage.setItem("agent_locale", agent_locale);
+            localStorage.setItem("persona", persona);
         }
     } else {
         lang = 'en';
@@ -57,6 +59,8 @@ function changeLang() {
             user_locale = "ja-JP";
             agent_locale = "ja-JP";
             persona = "Takumi";
+            localStorage.setItem("agent_locale", agent_locale);
+            localStorage.setItem("persona", persona);
         }
     }
 
