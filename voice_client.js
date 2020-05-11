@@ -9,8 +9,11 @@ let emailReplacements = {
     "@123.com": /\s*(c?at|got|and) (want|one|1) (2|tw?o) (three|3)\.\s*(com|org|in)/gi,
     "@$1.$2": /\s*(?:c?at|@|got|and)\s*(\w{3,})\s*\.\s*(com|org|in)/gi
 };
+let domainReplacements = {
+    "rear": "rare"
+};
 
-let replacements = [emailReplacements];
+let replacements = [domainReplacements];
 
 let processedUtterance = "";
 
@@ -150,7 +153,7 @@ function stopRecording() {
 
     microphone.classList.remove("active");
 
-    if(processedUtterance && !isTraining) sendMessage(processedUtterance);
+    if(processedUtterance && !isTraining) sendMessage(postProcessUtterance(processedUtterance));
     processedUtterance = "";
     resetSpeechData();
 }
@@ -209,9 +212,7 @@ function postProcessUtterance(text){
             text = text.replace(r[key], key);
         });
     });
-
     return text;
-
 }
 
 

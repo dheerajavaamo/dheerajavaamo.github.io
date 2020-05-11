@@ -43,11 +43,14 @@ function changeLang() {
         $("#en-IN, #en-US").parent().hide();
         $("#ja-JP").parent().show();
 
-        if(user_locale != "en-US"){
-            user_locale = "en-US";
-            agent_locale = "en-US";
-            persona = "Joanna";
+        if(user_locale != "ja-JP"){
+            user_locale = "ja-JP";
+            agent_locale = "ja-JP";
+            persona = "Mizuki";
+            localStorage.setItem("agent_locale", agent_locale);
+            localStorage.setItem("persona", persona);
         }
+        
     } else {
         lang = 'en';
         localStorage.setItem("lang", lang);
@@ -57,12 +60,16 @@ function changeLang() {
         $("#en-IN, #en-US").parent().show();
         $("#ja-JP").parent().hide();
 
-        if(user_locale != "ja-JP"){
-            user_locale = "ja-JP";
-            agent_locale = "ja-JP";
-            persona = "Takumi";
+        if(user_locale != "en-US"){
+            user_locale = "en-US";
+            agent_locale = "en-US";
+            persona = "Joanna";
+            localStorage.setItem("agent_locale", agent_locale);
+            localStorage.setItem("persona", persona);
         }
+        
     }
+    languageChanged(user_locale);
 
     $("[data-localize]").localize("local", {
         language: lang,

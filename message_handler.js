@@ -1,7 +1,7 @@
 let lastMessageUUID;
 let agentResponse = document.querySelector(".agent-prompt");
 let avaamo_id;
-let storage_url;
+let parsed_storage_url;
 
 let existing_user_uuid = null; //localStorage.getItem("user_uuid");
 let isExistingUser = existing_user_uuid;
@@ -32,9 +32,36 @@ let user_uuid = existing_user_uuid || function uuid4() {
 
   localStorage.setItem("user_uuid", user_uuid);
 
+function extractTimeEntity(text){
+  let extractedDates = chrono.parse(text);
+
+    let extracted_time = "";
+
+    extractedDates.forEach(d => {
+        if(extracted_time || d.text.length === 2){
+            return;
+        }
+        if(d.start && d.start.knownValues && d.start.knownValues.hour){
+            let am_pm = "am"
+            if(d.start.knownValues.hour > 12){
+                d.start.knownValues.hour -= 12;
+                am_pm = "pm"
+            }
+            if(!d.start.knownValues.minute < 10){
+                d.start.knownValues.minute = d.start.knownValues.minute + "0";
+            }
+            extracted_time = `${d.start.knownValues.hour}:${d.start.knownValues.minute} ${am_pm}`;
+        }
+    });
+    if(extracted_time){
+        text = text + "time_of_incident:" + extracted_time;
+    }
+    return text;
+}
 function sendMessage(message) {
     // Avaamo.sendMessage(message);
     translateIfRequired(message, "en-US", user_locale).then(message => {
+      message = extractTimeEntity(message);
       fetch(proxyurl + custom_channel_url, {
         method: "POST",
         headers: {
@@ -76,13 +103,13 @@ async function translateIfRequired(message, target_language, source_language){
 function handleAgentResponse(m){
     if(m.text && m.text.indexOf("avaamo_id") > -1){
         avaamo_id = JSON.parse(m.text).avaamo_id;
-        storage_url = `https://c7.avaamo.com/dashboard/bots/${bot_id}/storages.json?user_id=${avaamo_id}`;
-        getStorage(storage_url);
+        parsed_storage_url = `${storage_url}/${bot_id}/storages.json?user_id=${avaamo_id}`;
+        getStorage(parsed_storage_url);
         return;
     }
     if (m.request_message_uuid != lastMessageUUID) {
         lastMessageUUID = m.request_message_uuid;
-        if(avaamo_id)getStorage(storage_url);
+        if(avaamo_id)getStorage(parsed_storage_url);
         agentResponse.innerHTML = "";
     }
     if(m.text){
