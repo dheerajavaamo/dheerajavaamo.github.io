@@ -120,8 +120,8 @@ p {
     margin-bottom: 5px;
     height: 55px;
     padding: 5px;
-    overflow-y: hidden;
     overflow-x: hidden;
+    overflow-y: scroll;
     color: #fff;
 }
 .modal.show .modal-dialog {
