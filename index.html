@@ -150,19 +150,21 @@
               to your Assistant
             </p>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="user_locale" id="en-US" value="en-US" checked onclick="onUserLocaleSelected('en-US')">
+              <input class="form-check-input" type="radio" name="user_locale" id="en-US" value="en-US" checked onclick="onUserLocaleSelected('en-US');changeVoice('en');">
               <label class="form-check-label" for="en-US" data-localize="setting.language_locale.english_us">
                 English (US)
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="user_locale" id="en-IN" value="en-IN" onclick="onUserLocaleSelected('en-IN')">
+              <input class="form-check-input" type="radio" name="user_locale" id="en-IN" value="en-IN"
+                onclick="onUserLocaleSelected('en-IN');changeVoice('en');">
               <label class="form-check-label" for="en-IN" data-localize="setting.language_locale.english_ind">
                 English (IND)
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="user_locale" id="ja-JP" value="ja-JP" onclick="onUserLocaleSelected('ja-JP')">
+              <input class="form-check-input" type="radio" name="user_locale" id="ja-JP" value="ja-JP"
+                onclick="onUserLocaleSelected('ja-JP');changeVoice('jp');">
               <label class="form-check-label" for="ja-JP" data-localize="setting.language_locale.japanese">
                 Japanese
               </label>
@@ -264,7 +266,7 @@
   <script src="./voice_client.js"></script>
   <script>
     $(document).ready(function(){
-      $(".langSwitch span").html('英語');
+      var lang = urlParams.get('lang') || localStorage.getItem("lang", "en") || "en";
       $("[data-localize]").localize("local", { language: lang, pathPrefix: "./locals" })
       $('#myModal').modal('show');
       $('.settingPage').hide();
@@ -272,9 +274,11 @@
       if (lang == 'jp') {
         $(".langSwitch span").html('英語');
         $("#Matthew, #Joanna").parent().hide();
+        $("#en-IN, #en-US").parent().hide();
       } else {
         $(".langSwitch span").html('Japanese');
         $("#Takumi, #Mizuki").parent().hide();
+        $("#ja-JP").parent().hide();
       }
     });
   </script>

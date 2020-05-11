@@ -40,6 +40,8 @@ function changeLang() {
         $(".langSwitch span").html('英語');
         $("#Matthew, #Joanna").parent().hide();
         $("#Takumi, #Mizuki").parent().show();
+        $("#en-IN, #en-US").parent().hide();
+        $("#ja-JP").parent().show();
 
         if(user_locale != "en-US"){
             user_locale = "en-US";
@@ -52,6 +54,8 @@ function changeLang() {
         $(".langSwitch span").html('Japanese');
         $("#Takumi, #Mizuki").parent().hide();
         $("#Matthew, #Joanna").parent().show();
+        $("#en-IN, #en-US").parent().show();
+        $("#ja-JP").parent().hide();
 
         if(user_locale != "ja-JP"){
             user_locale = "ja-JP";
@@ -64,6 +68,17 @@ function changeLang() {
         language: lang,
         pathPrefix: "./locals"
     });
+}
 
+function changeVoice(lang) {
+    if(lang == 'en') {
+        $("#Takumi, #Mizuki").parent().hide();
+        $("#Matthew, #Joanna").parent().show();
+        $("#Joanna").prop('checked', true);
+    } else {
+        $("#Matthew, #Joanna").parent().hide();
+        $("#Takumi, #Mizuki").parent().show();
+        $("#Takumi").prop('checked', true);
+    }
 }
 
