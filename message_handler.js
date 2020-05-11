@@ -32,9 +32,36 @@ let user_uuid = existing_user_uuid || function uuid4() {
 
   localStorage.setItem("user_uuid", user_uuid);
 
+function extractTimeEntity(text){
+  let extractedDates = chrono.parse(text);
+
+    let extracted_time = "";
+
+    extractedDates.forEach(d => {
+        if(extracted_time || d.text.length === 2){
+            return;
+        }
+        if(d.start && d.start.knownValues && d.start.knownValues.hour){
+            let am_pm = "am"
+            if(d.start.knownValues.hour > 12){
+                d.start.knownValues.hour -= 12;
+                am_pm = "pm"
+            }
+            if(!d.start.knownValues.minute < 10){
+                d.start.knownValues.minute = d.start.knownValues.minute + "0";
+            }
+            extracted_time = `${d.start.knownValues.hour}:${d.start.knownValues.minute} ${am_pm}`;
+        }
+    });
+    if(extracted_time){
+        text = text + "time_of_incident:" + extracted_time;
+    }
+    return text;
+}
 function sendMessage(message) {
     // Avaamo.sendMessage(message);
     translateIfRequired(message, "en-US", user_locale).then(message => {
+      message = extractTimeEntity(message);
       fetch(proxyurl + custom_channel_url, {
         method: "POST",
         headers: {
