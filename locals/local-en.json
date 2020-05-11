@@ -6,7 +6,7 @@
     "city": "City",
     "state": "State",
     "zip_code": "Zip code",
-    "location": "Accident Location",
+    "accident_location": "Accident Location",
     "accident_city": "Accident City",
     "other_passengers": "Other passengers in the car",
     "injuries": "Was anyone injured?",
