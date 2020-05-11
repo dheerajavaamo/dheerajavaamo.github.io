@@ -1,7 +1,7 @@
 let lastMessageUUID;
 let agentResponse = document.querySelector(".agent-prompt");
 let avaamo_id;
-let storage_url;
+let parsed_storage_url;
 
 let existing_user_uuid = null; //localStorage.getItem("user_uuid");
 let isExistingUser = existing_user_uuid;
@@ -103,13 +103,13 @@ async function translateIfRequired(message, target_language, source_language){
 function handleAgentResponse(m){
     if(m.text && m.text.indexOf("avaamo_id") > -1){
         avaamo_id = JSON.parse(m.text).avaamo_id;
-        storage_url = `https://c7.avaamo.com/dashboard/bots/${bot_id}/storages.json?user_id=${avaamo_id}`;
-        getStorage(storage_url);
+        parsed_storage_url = `${storage_url}/${bot_id}/storages.json?user_id=${avaamo_id}`;
+        getStorage(parsed_storage_url);
         return;
     }
     if (m.request_message_uuid != lastMessageUUID) {
         lastMessageUUID = m.request_message_uuid;
-        if(avaamo_id)getStorage(storage_url);
+        if(avaamo_id)getStorage(parsed_storage_url);
         agentResponse.innerHTML = "";
     }
     if(m.text){

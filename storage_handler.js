@@ -7,7 +7,7 @@ function getStorage(url) {
         url: proxyurl + url,
         headers: {
             "Content-Type": "application/json",
-            "access-token": "23c0601fb7704e30836cea931e266b26",
+            "access-token": storage_access_token,
         },
         success: function (json) {
             for (let obj of json.storage) {
