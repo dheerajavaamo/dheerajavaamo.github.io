@@ -72,7 +72,7 @@ function getStorage(url) {
             $("#account-number").attr("value", account_number);
             $("#location").attr("value", location);
             $("#towed").attr("value", towed);
-            $("#other_vehicle_information").attr("value", other_vehicle_information);
+            $("#other_vehicle_information").html(other_vehicle_information);
             $("#phone").attr("value", phone);
             $("#datetime").attr("value", datetime);
             $("#car-make").attr("value", car_make);
@@ -89,8 +89,23 @@ function getStorage(url) {
 
             let firstBlankField = $('select,input,textarea').filter(function() { return $(this).val() == ""; })[0];
             if(firstBlankField){
-                firstBlankField.scrollIntoView(false);
+                // firstBlankField.scrollIntoView(false);
+                scrollToTargetAdjusted(firstBlankField);
             }
         },
+    });
+}
+
+function scrollToTargetAdjusted(element){
+    var scrollView = document.querySelector("form.form");
+    var headerOffset = 170;
+    var elementPosition = element.getBoundingClientRect().top;
+    var offsetPosition = elementPosition - headerOffset + scrollView.scrollTop;
+    
+    console.log("offset", elementPosition, offsetPosition);
+
+    scrollView.scrollTo({
+         top: offsetPosition,
+         behavior: "smooth"
     });
 }
