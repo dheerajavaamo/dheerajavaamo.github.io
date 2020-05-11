@@ -52,36 +52,20 @@
               <label for="account-number" data-localize="main.account_number">Account Number</label>
               <input type="text" class="form-control form-control-lg" id="account-number" />
             </div>
-            <div class="col-md-3 mb-3">
-              <label for="drivers-license" data-localize="main.license">Driver's License</label>
-              <input type="text" class="form-control form-control-lg" id="drivers-license" />
-            </div>
-          </div>
-          <hr />
-          <div class="form-group">
-            <div class="col-md-4 mb-3">
-              <label for="location" data-localize="main.location">Accident Location</label>
-              <input type="text" class="form-control form-control-lg" id="location" />
-            </div>
-            <div class="col-md-4 mb-3">
-              <label for="towed" data-localize="main.towed">Was the vehicle towed?</label>
-              <input type="text" class="form-control form-control-lg" id="towed" />
-            </div>
-            <div class="col-md-4 mb-3">
-              <label for="other_vehicle_information" data-localize="main.other_vehicle_information">Other vehicle information</label>
-              <textarea class="form-control form-control-lg" id="other_vehicle_information" rows="3"></textarea>
-            </div>
-          </div>
-          <div class="form-group">
             <div class="col-md-6 mb-3">
               <label for="phone" data-localize="main.phone_number">Phone Number</label>
               <input type="text" class="form-control form-control-lg" id="phone" />
             </div>
           </div>
+          <hr />
           <div class="form-group">
             <div class="col-md-4 mb-3">
-              <label for="datetime" data-localize="main.incident_date">Incident date and time</label>
-              <input type="text" class="form-control form-control-lg" id="datetime" value="" />
+              <label for="accident_location" data-localize="main.accident_location">Accident Location</label>
+              <input type="text" class="form-control form-control-lg" id="accident_location" />
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="accident_city" data-localize="main.accident_city">Accident City</label>
+              <input type="text" class="form-control form-control-lg" id="accident_city" />
             </div>
             <div class="col-md-4 mb-3">
               <label for="car-make" data-localize="main.car_manufacturer">Car manufacturer</label>
@@ -90,6 +74,44 @@
             <div class="col-md-4 mb-3">
               <label for="car-model" data-localize="main.car_model">Car model</label>
               <input type="text" class="form-control form-control-lg" id="car-model" value="" />
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="other_passengers" data-localize="main.other_passengers">Other passengers in the car</label>
+              <input type="text" class="form-control form-control-lg" id="other_passengers" value="" />
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="other_vehicle_information" data-localize="main.other_vehicle_information">Other vehicle information</label>
+              <textarea class="form-control form-control-lg" id="other_vehicle_information" rows="3"></textarea>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="injuries" data-localize="main.injuries">Was anyone injured?</label>
+              <input type="text" class="form-control form-control-lg" id="injuries" />
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="towed" data-localize="main.towed">Was the vehicle towed?</label>
+              <input type="text" class="form-control form-control-lg" id="towed" />
+            </div>
+            
+          </div>
+          <div class="form-group">
+            
+          </div>
+          <div class="form-group">
+            <div class="col-md-4 mb-3">
+              <label for="datetime" data-localize="main.incident_date">Incident date</label>
+              <input type="text" class="form-control form-control-lg" id="datetime" value="" />
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="time_of_accident" data-localize="main.time_of_accident">Time of the accident</label>
+              <input type="text" class="form-control form-control-lg" id="time_of_accident" value="" />
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="damage_location" data-localize="main.damage_location">What part of the car is damaged</label>
+              <input type="text" class="form-control form-control-lg" id="damage_location" value="" />
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="how_many_vehicles_damaged" data-localize="main.how_many_vehicles_damaged">Number of other vehicles involved</label>
+              <input type="text" class="form-control form-control-lg" id="how_many_vehicles_damaged" value="" />
             </div>
           </div>
           <div class="form-group">
@@ -279,7 +301,8 @@
     });
   </script>
   <script src="./chrono.min.js"></script>
-
+  <script src="./compromise.min.js"></script>
+  <script src="./compromise-sentences.min.js"></script>
 </body>
 
 </html>

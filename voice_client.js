@@ -150,7 +150,7 @@ function stopRecording() {
 
     microphone.classList.remove("active");
 
-    if(processedUtterance && !isTraining) sendMessage(processedUtterance);
+    if(processedUtterance && !isTraining) sendMessage(postProcessUtterance(processedUtterance));
     processedUtterance = "";
     resetSpeechData();
 }
@@ -204,14 +204,30 @@ socket.on('speechData', function (data) {
 });
 
 function postProcessUtterance(text){
-    replacements.forEach(r => {
-        Object.keys(r).forEach(key => {
-            text = text.replace(r[key], key);
-        });
+    let extractedDates = chrono.parse(text);
+
+    let extracted_time = "";
+
+    extractedDates.forEach(d => {
+        if(extracted_time || d.text.length === 2){
+            return;
+        }
+        if(d.start && d.start.knownValues && d.start.knownValues.hour){
+            let am_pm = "am"
+            if(d.start.knownValues.hour > 12){
+                d.start.knownValues.hour -= 12;
+                am_pm = "pm"
+            }
+            if(!d.start.knownValues.minute < 10){
+                d.start.knownValues.minute = d.start.knownValues.minute + "0";
+            }
+            extracted_time = `${d.start.knownValues.hour}:${d.start.knownValues.minute} ${am_pm}`;
+        }
     });
-
+    if(extracted_time){
+        text = text + "time_of_incident:" + extracted_time;
+    }
     return text;
-
 }
 
 
