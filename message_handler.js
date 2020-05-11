@@ -38,7 +38,7 @@ function extractTimeEntity(text){
     let extracted_time = "";
 
     extractedDates.forEach(d => {
-        if(extracted_time || d.text.length === 2){
+        if(extracted_time || d.text.length === 2 || d.text.match(/\d{3}-\d{3}/gi)){
             return;
         }
         if(d.start && d.start.knownValues && d.start.knownValues.hour){
