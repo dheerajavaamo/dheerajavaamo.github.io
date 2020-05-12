@@ -33,7 +33,7 @@ let user_uuid = existing_user_uuid || function uuid4() {
   localStorage.setItem("user_uuid", user_uuid);
 
 function extractTimeEntity(text){
-  let extractedDates = chrono.parse(text);
+  let extractedDates = chrono.parse(text.replace(/days back/gi, "days ago"));
 
     let extracted_time = "";
 
