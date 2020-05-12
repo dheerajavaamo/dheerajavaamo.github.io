@@ -1,4 +1,4 @@
-
+let scroll_offset = 170;
 
 function getStorage(url) {
     $.ajax({
@@ -87,6 +87,10 @@ function getStorage(url) {
             $("#damage_location").attr("value", damage_location);
             $("#how_many_vehicles_damaged").attr("value", how_many_vehicles_damaged);
 
+            if(!scroll_offset){
+                scroll_offset = document.querySelector("#first-name").getBoundingClientRect().top;
+            }
+
             let firstBlankField = $('select,input,textarea').filter(function() { return $(this).val() == ""; })[0];
             if(firstBlankField){
                 // firstBlankField.scrollIntoView(false);
@@ -98,7 +102,7 @@ function getStorage(url) {
 
 function scrollToTargetAdjusted(element){
     var scrollView = document.querySelector("form.form");
-    var headerOffset = 170;
+    var headerOffset = scroll_offset;
     var elementPosition = element.getBoundingClientRect().top;
     var offsetPosition = elementPosition - headerOffset + scrollView.scrollTop;
     

@@ -35,7 +35,6 @@ let general_hints = [
     "hyundai",
     "phone",
     "hurt",
-    "accident",
     "got",
     "luckily",
     "driver",
@@ -47,7 +46,23 @@ let general_hints = [
     "drive",
     "car",
     "report",
-    "accident"
+    "accident",
+    "bumper",
+    "dent",
+    "forester",
+    "mercedes",
+    "whole foods",
+    "Sunnyvale",
+    "parking lot",
+    "mustang",
+    "towing",
+    "Santa clara",
+    "Saratoga",
+    "Kiely",
+    "rear ended",
+    "incident",
+    "Expressway",
+    "Lawrence"
 
 ];
 let alpha_numeric_hints = ["$OOV_CLASS_ALPHANUMERIC_SEQUENCE"].concat(general_hints);
