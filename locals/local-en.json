@@ -56,7 +56,7 @@
   },
   "popup": {
     "welcome_text": "Hello, I can help you fill out an insurance claim.",
-    "submit_text": "Thanks for sumitting the Insurance Claim form. You will receive a conformation email and next steps shortly.",
+    "submit_text": "Thanks for submitting the Insurance Claim form. You will receive a confirmation email and next steps shortly.",
     "submit": "Let's get started",
     "close": "Close"
   }
