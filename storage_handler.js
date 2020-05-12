@@ -80,7 +80,7 @@ function getStorage(url) {
             $("#accident-details").html(accident_details);
 
             $("#accident_location").attr("value", accident_location);
-            $("#accident_city").attr("value", accident_city);
+            // $("#accident_city").attr("value", accident_city);
             $("#other_passengers_in_car").attr("value", other_passengers_in_car);
             $("#injuries").attr("value", injuries);
             $("#time_of_accident").attr("value", time_of_accident);
