@@ -64,7 +64,8 @@ let general_hints = [
     "rear ended",
     "incident",
     "Expressway",
-    "Lawrence"
+    "Lawrence",
+    "vehicle"
 
 ];
 let alpha_numeric_hints = ["$OOV_CLASS_ALPHANUMERIC_SEQUENCE"].concat(general_hints);
