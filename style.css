@@ -121,7 +121,7 @@ p {
     height: 55px;
     padding: 5px;
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: hidden;
     color: #fff;
 }
 .modal.show .modal-dialog {
