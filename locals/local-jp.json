@@ -6,7 +6,7 @@
     "city": "都市名",
     "state": "状態",
     "zip_code": "郵便番号",
-    "location": "事故レンタル",
+    "accident_location": "事故レンタル",
     "accident_city": "事故都市",
     "main.accident_location": "事故発生場所",
     "other_passengers": "車内の他の乗客",

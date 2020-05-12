@@ -33,12 +33,18 @@ let user_uuid = existing_user_uuid || function uuid4() {
   localStorage.setItem("user_uuid", user_uuid);
 
 function extractTimeEntity(text){
-  let extractedDates = chrono.parse(text);
+  let extractedDates = chrono.parse(text.replace(/days back/gi, "days ago")
+  .replace(/(0|O) clock in the afternoon/gi, "pm")
+  .replace(/(0|O) clock in the night/gi, "pm")
+  .replace(/(0|O) clock in the morning/gi, "am")
+  .replace(/(\d) in the morning/gi, "$1 am")
+  .replace(/(\d) in the afternoon/gi, "$1 pm")
+  );
 
     let extracted_time = "";
 
     extractedDates.forEach(d => {
-        if(extracted_time || d.text.length === 2){
+        if(extracted_time || d.text.length === 2 || d.text.match(/\d{3}-\d{3}/gi || d.text.toLowerCase() == "now")){
             return;
         }
         if(d.start && d.start.knownValues && d.start.knownValues.hour){
@@ -48,7 +54,7 @@ function extractTimeEntity(text){
                 am_pm = "pm"
             }
             if(!d.start.knownValues.minute < 10){
-                d.start.knownValues.minute = d.start.knownValues.minute + "0";
+                d.start.knownValues.minute = "0" + d.start.knownValues.minute;
             }
             extracted_time = `${d.start.knownValues.hour}:${d.start.knownValues.minute} ${am_pm}`;
         }
@@ -85,9 +91,10 @@ function sendMessage(message) {
 }
 
 async function translateIfRequired(message, target_language, source_language){
+  message = message.replace(/days back/gi, "days ago");
   console.log("message, target_language, source_language", message, target_language, source_language);
   if(source_language != target_language){
-    let translatedText = "ja-JP" == target_language ? await translateToJapanese(message) : await translateToJapanese(message);
+    let translatedText = "ja-JP" == target_language ? await translateToJapanese(message) : await translateToEnglish(message);
     if(translatedText){
       message = translatedText;
       console.log("Translated text", message);
