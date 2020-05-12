@@ -15,7 +15,7 @@ storage_access_token = "a7bd590873c94c7e9c6777e1bb782ed1";
 custom_channel_url = "https://c6.avaamo.com//bot_connector_webhooks/375bc2e9-88b1-4cac-af71-986c1d31be6a/message.json";
 channel_uuid = "2d522fe0-e8a1-4775-a4f3-71b2e73f782b";
 
-const window.auth_key = "b6433450-2192-3b76-fe60-4917a54be58b";
+window.auth_key = "b6433450-2192-3b76-fe60-4917a54be58b";
 
 let general_hints = [
     "Sriram",
