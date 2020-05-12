@@ -50,7 +50,7 @@ function resetSpeechData(onlyIntermediate){
         dictation = "";
     }
     intermediateText = "";
-    
+
 }
 
 let idleTimer;
@@ -173,7 +173,7 @@ function cancelIdleTimer(){
 //================= SOCKET IO =================
 socket.on('connect', function (data) {
     socket.emit('join', 'Server Connected to Client');
-    
+
 });
 
 socket.on('messages', function (data) {
@@ -202,8 +202,11 @@ socket.on('speechData', function (data) {
         }
     }
     processedUtterance = dictation + " " + intermediateText;
-    
+
     diagnostic.innerHTML = "<span class='final'>" + processedUtterance + "</span>" + " <span class='intermediate'>" + "" + "</span>";
+    $('.speech_output').animate({
+        scrollTop: $('.speech_output').prop("scrollHeight")
+    }, 300);
 });
 
 function postProcessUtterance(text){
