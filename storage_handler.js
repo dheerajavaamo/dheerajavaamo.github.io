@@ -1,4 +1,4 @@
-
+let scroll_offset;
 
 function getStorage(url) {
     $.ajax({
@@ -80,12 +80,16 @@ function getStorage(url) {
             $("#accident-details").html(accident_details);
 
             $("#accident_location").attr("value", accident_location);
-            $("#accident_city").attr("value", accident_city);
+            // $("#accident_city").attr("value", accident_city);
             $("#other_passengers_in_car").attr("value", other_passengers_in_car);
             $("#injuries").attr("value", injuries);
             $("#time_of_accident").attr("value", time_of_accident);
             $("#damage_location").attr("value", damage_location);
             $("#how_many_vehicles_damaged").attr("value", how_many_vehicles_damaged);
+
+            if(!scroll_offset){
+                scroll_offset = document.querySelector("#first-name").getBoundingClientRect().top;
+            }
 
             let firstBlankField = $('select,input,textarea').filter(function() { return $(this).val() == ""; })[0];
             if(firstBlankField){
@@ -98,7 +102,7 @@ function getStorage(url) {
 
 function scrollToTargetAdjusted(element){
     var scrollView = document.querySelector("form.form");
-    var headerOffset = 170;
+    var headerOffset = scroll_offset || 170;
     var elementPosition = element.getBoundingClientRect().top;
     var offsetPosition = elementPosition - headerOffset + scrollView.scrollTop;
     
