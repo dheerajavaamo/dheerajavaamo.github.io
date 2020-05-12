@@ -44,7 +44,7 @@ function extractTimeEntity(text){
     let extracted_time = "";
 
     extractedDates.forEach(d => {
-        if(extracted_time || d.text.length === 2 || d.text.match(/\d{3}-\d{3}/gi || d.text.toLowerCase() == "now")){
+        if(extracted_time || d.text.length === 2 || d.text.match(/\d{3}-\d{3}/gi || d.text.toLowerCase() === "now")){
             return;
         }
         if(d.start && d.start.knownValues && d.start.knownValues.hour){
@@ -53,7 +53,7 @@ function extractTimeEntity(text){
                 d.start.knownValues.hour -= 12;
                 am_pm = "pm"
             }
-            if(!d.start.knownValues.minute < 10){
+            if(d.start.knownValues.minute < 10){
                 d.start.knownValues.minute = "0" + d.start.knownValues.minute;
             }
             extracted_time = `${d.start.knownValues.hour}:${d.start.knownValues.minute} ${am_pm}`;
