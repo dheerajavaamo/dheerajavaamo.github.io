@@ -1,4 +1,4 @@
-let scroll_offset = 170;
+let scroll_offset;
 
 function getStorage(url) {
     $.ajax({
@@ -102,7 +102,7 @@ function getStorage(url) {
 
 function scrollToTargetAdjusted(element){
     var scrollView = document.querySelector("form.form");
-    var headerOffset = scroll_offset;
+    var headerOffset = scroll_offset || 170;
     var elementPosition = element.getBoundingClientRect().top;
     var offsetPosition = elementPosition - headerOffset + scrollView.scrollTop;
     
