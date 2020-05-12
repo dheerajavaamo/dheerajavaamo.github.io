@@ -85,6 +85,7 @@ function sendMessage(message) {
 }
 
 async function translateIfRequired(message, target_language, source_language){
+  message = message.replace(/days back/gi, "days ago");
   console.log("message, target_language, source_language", message, target_language, source_language);
   if(source_language != target_language){
     let translatedText = "ja-JP" == target_language ? await translateToJapanese(message) : await translateToEnglish(message);
