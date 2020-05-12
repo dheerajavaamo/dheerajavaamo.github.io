@@ -262,6 +262,7 @@ h3, h6, h4, h5 {
 @media screen and (min-width: 800px) {
     #overlay-image {
         width: 25%;
+        min-width: 430px;
         position: fixed;
         height: 100%;
         margin: auto;
@@ -274,17 +275,19 @@ h3, h6, h4, h5 {
         z-index: 2;
         cursor: pointer;
     }
-    #overlay-color {
-        width: 21%;
-    }
     .outer-container {
         height: 90% !important;
+        min-width: 360px;
     }
     #overlay-color {
+        width: 21%;
         height: 95% !important;
+        min-width: 380px;
+        border-radius: 20px;
     }
     .modal.show .modal-dialog {
-        width: 18%;
+       width: 18%;
+       min-width: 250px;
     }
 }
 @media screen and (min-device-width : 414px) and (-webkit-device-pixel-ratio: 3){
@@ -321,6 +324,20 @@ h3, h6, h4, h5 {
     }
     .modal.show .modal-dialog{
         width: 100%;
+    }
+}
+@media only screen and (min-width : 600px) and (max-width : 800px){
+    .outer-container {
+        height: 90% !important;
+        min-width: 360px;
+    }
+    #overlay-color {
+        width: 21%;
+        height: 95% !important;
+        min-width: 380px;
+    }
+    .modal.show .modal-dialog {
+        width: 40%;
     }
 }
 @media (min-width: 768px) {
