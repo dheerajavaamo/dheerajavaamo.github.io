@@ -67,7 +67,8 @@ let general_hints = [
     "Lawrence",
     "vehicle",
     "hi there",
-    "Subaru Outback"
+    "Subaru Outback",
+    "cars"
 
 ];
 let alpha_numeric_hints = ["$OOV_CLASS_ALPHANUMERIC_SEQUENCE"].concat(general_hints);
