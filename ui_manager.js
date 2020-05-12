@@ -50,7 +50,7 @@ function changeLang() {
             localStorage.setItem("agent_locale", agent_locale);
             localStorage.setItem("persona", persona);
         }
-        
+
     } else {
         lang = 'en';
         localStorage.setItem("lang", lang);
@@ -67,7 +67,7 @@ function changeLang() {
             localStorage.setItem("agent_locale", agent_locale);
             localStorage.setItem("persona", persona);
         }
-        
+
     }
     languageChanged(user_locale);
 
@@ -89,3 +89,10 @@ function changeVoice(lang) {
     }
 }
 
+function onSubmitPopup() {
+    $('#submitModal').modal('show');
+}
+
+function submitClose() {
+    window.location.reload();
+}
