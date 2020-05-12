@@ -48,7 +48,7 @@ function extractTimeEntity(text){
                 am_pm = "pm"
             }
             if(!d.start.knownValues.minute < 10){
-                d.start.knownValues.minute = d.start.knownValues.minute + "0";
+                d.start.knownValues.minute = "0" + d.start.knownValues.minute;
             }
             extracted_time = `${d.start.knownValues.hour}:${d.start.knownValues.minute} ${am_pm}`;
         }
