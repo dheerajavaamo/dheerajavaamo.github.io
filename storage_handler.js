@@ -77,7 +77,7 @@ function getStorage(url) {
             $("#datetime").attr("value", datetime);
             $("#car-make").attr("value", car_make);
             $("#car-model").attr("value", car_model);
-            $("#accident-details").html(accident_details);
+            // $("#accident-details").html(accident_details);
 
             $("#accident_location").attr("value", accident_location);
             // $("#accident_city").attr("value", accident_city);
