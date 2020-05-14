@@ -173,12 +173,12 @@ function cancelIdleTimer(){
 //================= SOCKET IO =================
 socket.on('connect', function (data) {
     socket.emit('join', 'Server Connected to Client');
-
+    languageChanged(user_locale);
 });
 
 socket.on('messages', function (data) {
     console.log("Socket connected");
-    languageChanged(user_locale);
+    setTimeout(() => languageChanged(user_locale), 1000);
     addHints(general_hints);
 });
 
