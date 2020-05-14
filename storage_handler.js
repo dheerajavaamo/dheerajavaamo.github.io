@@ -68,34 +68,37 @@ function getStorage(url) {
             }
             // $("#form-data").html("<p>" + html + "</p>");
             // console.log(html);
-            $("#first-name").attr("value", first_name);
-            $("#account-number").attr("value", account_number);
-            $("#location").attr("value", location);
-            $("#towed").attr("value", towed);
-            $("#other_vehicle_information").html(other_vehicle_information);
-            $("#phone").attr("value", phone);
-            $("#datetime").attr("value", datetime);
-            $("#car-make").attr("value", car_make);
-            $("#car-model").attr("value", car_model);
-            // $("#accident-details").html(accident_details);
+            (async () => {
+                $("#first-name").attr("value", await translateIfRequired(first_name, user_locale, "en-US"));
+                $("#account-number").attr("value", account_number);
+                $("#location").attr("value", await translateIfRequired(location));
+                $("#towed").attr("value", await translateIfRequired(towed));
+                $("#other_vehicle_information").html(await translateIfRequired(other_vehicle_information));
+                $("#phone").attr("value", phone);
+                $("#datetime").attr("value", datetime);
+                $("#car-make").attr("value", await translateIfRequired(car_make));
+                $("#car-model").attr("value", await translateIfRequired(car_model));
+                // $("#accident-details").html(accident_details);
 
-            $("#accident_location").attr("value", accident_location);
-            // $("#accident_city").attr("value", accident_city);
-            $("#other_passengers_in_car").attr("value", other_passengers_in_car);
-            $("#injuries").attr("value", injuries);
-            $("#time_of_accident").attr("value", time_of_accident);
-            $("#damage_location").attr("value", damage_location);
-            $("#how_many_vehicles_damaged").attr("value", how_many_vehicles_damaged);
+                $("#accident_location").attr("value", await translateIfRequired(accident_location));
+                // $("#accident_city").attr("value", accident_city);
+                $("#other_passengers_in_car").attr("value", other_passengers_in_car);
+                $("#injuries").attr("value", await translateIfRequired(injuries));
+                $("#time_of_accident").attr("value", time_of_accident);
+                $("#damage_location").attr("value", await translateIfRequired(damage_location));
+                $("#how_many_vehicles_damaged").attr("value", how_many_vehicles_damaged);
 
-            if(!scroll_offset){
-                scroll_offset = document.querySelector("#first-name").getBoundingClientRect().top;
-            }
+                if(!scroll_offset){
+                    scroll_offset = document.querySelector("#first-name").getBoundingClientRect().top;
+                }
 
-            let firstBlankField = $('select,input,textarea').filter(function() { return $(this).val() == ""; })[0];
-            if(firstBlankField){
-                // firstBlankField.scrollIntoView(false);
-                scrollToTargetAdjusted(firstBlankField);
-            }
+                let firstBlankField = $('select,input,textarea').filter(function() { return $(this).val() == ""; })[0];
+                if(firstBlankField){
+                    // firstBlankField.scrollIntoView(false);
+                    scrollToTargetAdjusted(firstBlankField);
+                }
+            })();
+            
         },
     });
 }
