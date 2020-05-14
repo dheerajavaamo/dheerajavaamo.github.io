@@ -178,7 +178,10 @@ socket.on('connect', function (data) {
 
 socket.on('messages', function (data) {
     console.log("Socket connected");
-    setTimeout(() => languageChanged(user_locale), 1000);
+    setTimeout(() => {
+        languageChanged(user_locale);
+        socket.emit("single_utterance", false);
+    }, 1000);
     addHints(general_hints);
 });
 
