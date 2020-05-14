@@ -91,6 +91,9 @@ function sendMessage(message) {
 }
 
 async function translateIfRequired(message, target_language, source_language){
+  if(!message){
+    return null;
+  }
   message = message.replace(/days back/gi, "days ago");
   console.log("message, target_language, source_language", message, target_language, source_language);
   if(source_language != target_language){
