@@ -84,7 +84,7 @@ function sendMessage(message) {
           })
       }).then(res => res.json()).then(json => {
           console.log(json);
-          json.incoming_message.bot_replies.forEach(handleAgentResponse);
+          handleAgentResponses(json.incoming_message.bot_replies);
       });
     });
     
@@ -109,8 +109,13 @@ async function translateIfRequired(message, target_language, source_language){
   return message;
 }
 
+async function handleAgentResponses(replies){
+  for(let idx =  0; idx < replies.length; idx++){
+    await handleAgentResponse(replies[idx]);
+  }
+}
 
-function handleAgentResponse(m){
+async function handleAgentResponse(m){
     if(m.text && m.text.indexOf("avaamo_id") > -1){
         avaamo_id = JSON.parse(m.text).avaamo_id;
         parsed_storage_url = `${storage_url}/${bot_id}/storages.json?user_id=${avaamo_id}`;
@@ -123,29 +128,28 @@ function handleAgentResponse(m){
         agentResponse.innerHTML = "";
     }
     if(m.text){
-      translateIfRequired(m.text, user_locale, "en-US").then(message => {
-        console.log("Got translated message", message);
-        let newMessage = document.createElement("p");
-        newMessage.innerText = message;
-        agentResponse.appendChild(newMessage);
-        if (message.indexOf("license?") > -1) {
-          addAlphaNumericHint();
-        } else if(message.indexOf("phone number?") > -1 || message.indexOf("account number?") > -1){
-          addNumberHint();
-        }
-        else if(message.indexOf("zip code?") > -1){
-          addZipcodeHint();
-        } else {
-          addGeneralHints();
-        }
-        window.disable_speech  = true;
-        if(!window.disable_speech){
-          console.log("Speaking message", message);
-          speak(message, () => {
-            // toggleSpeech();
-          });
-        }
-      });
+      let message = await translateIfRequired(m.text, user_locale, "en-US");
+      console.log("Got translated message", message);
+      let newMessage = document.createElement("p");
+      newMessage.innerText = message;
+      agentResponse.appendChild(newMessage);
+      if (message.indexOf("license?") > -1) {
+        addAlphaNumericHint();
+      } else if(message.indexOf("phone number?") > -1 || message.indexOf("account number?") > -1){
+        addNumberHint();
+      }
+      else if(message.indexOf("zip code?") > -1){
+        addZipcodeHint();
+      } else {
+        addGeneralHints();
+      }
+      window.disable_speech  = true;
+      if(!window.disable_speech){
+        console.log("Speaking message", message);
+        speak(message, () => {
+          // toggleSpeech();
+        });
+      }
     }
 
 }
