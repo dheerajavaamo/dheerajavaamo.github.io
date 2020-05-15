@@ -1,7 +1,7 @@
 'use strict'
 
 //connection to socket
-const socket = io.connect("https://voice.aiavaamo.com");
+const socket = io.connect("https://japanese.aiavaamo.com");
 
 
 let emailReplacements = {
@@ -160,11 +160,11 @@ function stopRecording() {
 
 function startIdleTimer(){
     cancelIdleTimer();
-    console.log("scheduling timer");
+    // console.log("scheduling timer");
     idleTimer = setTimeout(stopRecording, idle_timeout);
 }
 function cancelIdleTimer(){
-    console.log("cancelling timer");
+    // console.log("cancelling timer");
     if(idleTimer){
         clearTimeout(idleTimer);
     }
@@ -190,7 +190,7 @@ socket.on('speechData', function (data) {
         return;
     }
     startIdleTimer();
-    console.log("voice data", data);
+    // console.log("voice data", data);
 
     resetSpeechData(true);
 

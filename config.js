@@ -94,7 +94,7 @@ else if(user_locale != "ja-JP"){
     persona = "Mizuki";
 }
 
-const idle_timeout = 5000;
+const idle_timeout = 7000;
 
 function createVariablesFromParams(){
     for(var key of urlParams.keys()) {
