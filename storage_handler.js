@@ -70,22 +70,22 @@ function getStorage(url) {
             // console.log(html);
             (async () => {
                 $("#first-name").attr("value", await translateIfRequired(first_name, user_locale, "en-US"));
-                $("#account-number").attr("value", account_number);
+                $("#account-number").attr("value", await translateIfRequired(account_number, user_locale, "en-US"));
                 $("#towed").attr("value", await translateIfRequired(towed, user_locale, "en-US"));
                 $("#other_vehicle_information").html(await translateIfRequired(other_vehicle_information, user_locale, "en-US"));
-                $("#phone").attr("value", phone);
-                $("#datetime").attr("value", datetime);
+                $("#phone").attr("value", await translateIfRequired(phone, user_locale, "en-US"));
+                $("#datetime").attr("value", await translateIfRequired(datetime, user_locale, "en-US"));
                 $("#car-make").attr("value", await translateIfRequired(car_make, user_locale, "en-US"));
                 $("#car-model").attr("value", await translateIfRequired(car_model, user_locale, "en-US"));
                 // $("#accident-details").html(accident_details);
 
                 $("#accident_location").attr("value", await translateIfRequired(accident_location, user_locale, "en-US"));
                 // $("#accident_city").attr("value", accident_city);
-                $("#other_passengers_in_car").attr("value", other_passengers_in_car);
+                $("#other_passengers_in_car").attr("value", await translateIfRequired(other_passengers_in_car, user_locale, "en-US"));
                 $("#injuries").attr("value", await translateIfRequired(injuries, user_locale, "en-US"));
-                $("#time_of_accident").attr("value", time_of_accident);
+                $("#time_of_accident").attr("value", await translateIfRequired(time_of_accident, user_locale, "en-US"));
                 $("#damage_location").attr("value", await translateIfRequired(damage_location, user_locale, "en-US"));
-                $("#how_many_vehicles_damaged").attr("value", how_many_vehicles_damaged);
+                $("#how_many_vehicles_damaged").attr("value", await translateIfRequired(how_many_vehicles_damaged, user_locale, "en-US"));
 
                 if(!scroll_offset){
                     scroll_offset = document.querySelector("#first-name").getBoundingClientRect().top;
