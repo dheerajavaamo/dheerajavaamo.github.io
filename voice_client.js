@@ -135,19 +135,25 @@ function startRecording() {
         startIdleTimer();
         microphone.classList.add("active");
         isRecording = true;
-        if (paused) {
-            recorder.resumeRecording();
-        } else {
+        // if (paused) {
+        //     recorder.resumeRecording();
+        // } else {
             recorder.startRecording();
-        }
+        // }
         socket.emit('startGoogleCloudStream', '');
     }
 }
 
 function stopRecording() {
+    if(!isRecording){
+        return;
+    }
     isRecording = false;
     paused = true;
-    recorder.pauseRecording();
+    recorder.stopRecording(() => {
+        let blob = recorder.getBlob();
+        window.saveFile ? invokeSaveAsDialog(blob) : console.log(blob)
+    });
 
     socket.emit('endGoogleCloudStream', '');
 
