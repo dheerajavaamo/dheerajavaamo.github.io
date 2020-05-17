@@ -154,6 +154,7 @@ function stopRecording() {
         let blob = recorder.getBlob();
         window.saveFile ? invokeSaveAsDialog(blob) : console.log(blob)
     });
+    recorder.reset();
 
     socket.emit('endGoogleCloudStream', '');
 
