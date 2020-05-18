@@ -143,7 +143,7 @@ async function handleAgentResponse(m){
       } else {
         addGeneralHints();
       }
-      window.disable_speech  = true;
+      // window.disable_speech  = true;
       if(!window.disable_speech){
         console.log("Speaking message", message);
         speak(message, () => {
