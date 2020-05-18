@@ -10,7 +10,8 @@ let emailReplacements = {
     "@$1.$2": /\s*(?:c?at|@|got|and)\s*(\w{3,})\s*\.\s*(com|org|in)/gi
 };
 let domainReplacements = {
-    "rear": "rare"
+    "rear": "rare",
+    "stock": "account"
 };
 
 let replacements = [domainReplacements];
