@@ -289,6 +289,10 @@ h3, h6, h4, h5 {
     margin-left: 10px;
     font-size: 17px;
 }
+.voiceTrainingPage .voiceForm .form-check .icon {
+    height: 16px;
+    width: 16px;
+}
 .voiceTrainingPage .voiceForm .form-check.waiting {
     opacity: 0.21;
 }
