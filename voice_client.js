@@ -162,6 +162,9 @@ function stopRecording() {
     microphone.classList.remove("active");
 
     if(processedUtterance && !isTraining) sendMessage(postProcessUtterance(processedUtterance));
+    if(isTraining){
+        trainingSpeechComplete(processedUtterance);
+    }
     processedUtterance = "";
     resetSpeechData();
 }

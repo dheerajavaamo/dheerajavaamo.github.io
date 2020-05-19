@@ -1,12 +1,13 @@
 var isTraining = false;
 
-function expandTextPopup(className) {
-    var text = $("." + className).html()
+function expandTextPopup(className, displayText) {
+    var text = displayText || $("." + className).html()
     $('#textModal').find(".modal-body").html(text)
     $('#textModal').modal('show');
 }
 
 function openSettingPage() {
+    $('.speech_output').show();
     $('.mainPage').hide();
     $('.voiceTrainingPage').hide();
     $('.settingPage').show();
@@ -24,12 +25,14 @@ function openMainPage() {
 }
 
 function openVoiceTraining() {
+    $('.speech_output').hide();
     $('.settingPage').hide();
     $('.mainPage').hide();
     $('.voiceTrainingPage').show();
     $('footer .speech_output').empty();
     $('footer').css('visibility', 'visible');
     isTraining = true;
+    initTraining();
 }
 
 function changeLang() {
