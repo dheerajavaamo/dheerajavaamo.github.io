@@ -142,7 +142,6 @@ p {
 .modal.show .modal-dialog .modal-footer button {
   margin-bottom: 0;
 }
-
 @keyframes shadow-pulse {
     0% {
         box-shadow: 0 0 0 0px #00BCDD;
@@ -204,7 +203,6 @@ p {
     border-radius: 10px;
     cursor: pointer;
 }
-
 .settingForm,
 .voiceForm {
     margin-top: 25px;
@@ -242,6 +240,7 @@ h3, h6, h4, h5 {
 }
 .voiceForm .form-check {
     margin: 10px 0;
+    padding-left: 0;
 }
 .voiceForm .form-check label {
     opacity: 0.21;
@@ -257,6 +256,44 @@ h3, h6, h4, h5 {
 }
 .settingPage footer {
     visibility: hidden;
+}
+.voiceTrainingPage .voiceForm .waiting .fa.fa-spinner,
+.voiceTrainingPage .voiceForm .completed .fa.fa-spinner {
+  display: none;
+}
+.voiceTrainingPage .voiceForm .waiting .fa.fa-check,
+.voiceTrainingPage .voiceForm .training .fa.fa-check {
+    display: none;
+}
+.voiceTrainingPage .voiceForm .completed .fa.fa-circle,
+.voiceTrainingPage .voiceForm .training .fa.fa-circle {
+    display: none;
+}
+.voiceTrainingPage .voiceForm .training .fa.fa-spinner {
+    display: inline-block;
+}
+.voiceTrainingPage .voiceForm .waiting .fa.fa-circle {
+    display: inline-block;
+}
+.voiceTrainingPage .voiceForm .completed .fa.fa-check {
+    display: inline-block;
+}
+.voiceTrainingPage .voiceForm .form-check-input {
+  visibility: hidden;
+}
+.voiceTrainingPage .voiceForm .form-check .text,
+.voiceTrainingPage .voiceForm .form-check .icon{
+    color: white;
+}
+.voiceTrainingPage .voiceForm .form-check .text {
+    margin-left: 10px;
+    font-size: 17px;
+}
+.voiceTrainingPage .voiceForm .form-check.waiting {
+    opacity: 0.21;
+}
+.voiceTrainingPage .voiceForm .form-check.completed .icon {
+    color: #55C4FF;
 }
 
 @media screen and (min-width: 800px) {

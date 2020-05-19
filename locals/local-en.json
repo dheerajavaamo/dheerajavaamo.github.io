@@ -49,7 +49,7 @@
       "submit": "TRAIN",
       "description": "Train your voice models for precise voice matching.",
       "train_sentense1": "Accident, insurance, car, Honda, Civic",
-      "train_sentense2": "I was driving the car in north west direction",
+      "train_sentense2": "I was driving car in north west direction",
       "train_sentense3": "Toyota, driving, License, yesterday",
       "train_sentense4": " Nobody was hurt"
     }
