@@ -23,7 +23,7 @@ function translateToEnglish(text){
 }
 
 function translateTo(text, target_lang){
-    if(window.translation_agent == "google"){
+    if(translation_agent == "google"){
         return translateToUsingGoogle(text, target_lang);
     }
     return fetch(translation_url + formatParams({
