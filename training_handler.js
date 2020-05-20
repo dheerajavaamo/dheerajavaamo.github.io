@@ -19,6 +19,9 @@ function trainingSpeechComplete(utterance){
     .find(utteredWord => currentTrainingPhrase.split(splitRegex).map(w => w.toLowerCase()).find(expectedWord => expectedWord == utteredWord))){
         trainingSuccess();
     }
+    else if(utterance.split(splitRegex).length > 2){
+        trainingSuccess();
+    }
     else{
         expandTextPopup(null, "Sorry, the speech did not seem related to the training phrase. Please try again.");
     }
