@@ -15,7 +15,13 @@ storage_access_token = "a7bd590873c94c7e9c6777e1bb782ed1";
 custom_channel_url = "https://c6.avaamo.com//bot_connector_webhooks/375bc2e9-88b1-4cac-af71-986c1d31be6a/message.json";
 channel_uuid = "2d522fe0-e8a1-4775-a4f3-71b2e73f782b";
 
+let translation_url = `https://api.deepl.com/v2/translate`;
 window.auth_key = "b6433450-2192-3b76-fe60-4917a54be58b";
+
+window.g_auth_key = "AIzaSyCTJ5_eaIGgWy-r4c7IGFo9JVAFCqDm6kU";
+let google_translation_url = `https://translation.googleapis.com/language/translate/v2?key=${g_auth_key}`;
+
+let translation_agent = "google";
 
 let general_hints = [
     "Sriram",
@@ -103,8 +109,6 @@ function createVariablesFromParams(){
 }
 
 createVariablesFromParams();
-
-let translation_url = `https://api.deepl.com/v2/translate`;
 
 function onPersonaSelected(selectedPersona){
     persona = selectedPersona;

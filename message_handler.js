@@ -69,6 +69,7 @@ function sendMessage(message) {
     translateIfRequired(message, "en-US", user_locale).then(message => {
       message = extractTimeEntity(message);
       message = message.replace("stock number", "account number");
+      message = message.replace("security number", "account number");
       fetch(proxyurl + custom_channel_url, {
         method: "POST",
         headers: {

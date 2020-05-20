@@ -1,3 +1,15 @@
+function translateToUsingGoogle(text, target_lang){
+    return fetch(google_translation_url, { method: 'post', body: JSON.stringify({ q: text, target: target_lang.split("-")[0]})}).
+        then(r=> r.json()).
+        then(json=>{
+            let translations = json.data.translations;
+            return translations[0].translatedText;
+    }).catch(e=>{
+        console.error("EXCEPTION IN TRANSLATION ====>>>", e);
+        return Promise.resolve(text);
+    });
+}
+
 
 function translateToJapanese(text){
     if(text == "reset"){
@@ -11,6 +23,9 @@ function translateToEnglish(text){
 }
 
 function translateTo(text, target_lang){
+    if(window.translation_agent == "google"){
+        return translateToUsingGoogle(text, target_lang);
+    }
     return fetch(translation_url + formatParams({
         auth_key: window.auth_key,
         text: text,
