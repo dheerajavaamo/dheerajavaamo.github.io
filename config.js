@@ -18,7 +18,7 @@ channel_uuid = "2d522fe0-e8a1-4775-a4f3-71b2e73f782b";
 let translation_url = `https://api.deepl.com/v2/translate`;
 window.auth_key = "b6433450-2192-3b76-fe60-4917a54be58b";
 
-window.g_auth_key = "AIzaSyCTJ5_eaIGgWy-r4c7IGFo9JVAFCqDm6kU";
+window.g_auth_key = "AIzaSyAZqDZkqlb088zTp7NcB4xgBfsb7Jquqwk";
 let google_translation_url = `https://translation.googleapis.com/language/translate/v2?key=${g_auth_key}`;
 
 let translation_agent = "google";
