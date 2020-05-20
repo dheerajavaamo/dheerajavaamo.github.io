@@ -19,7 +19,7 @@ function trainingSpeechComplete(utterance){
     .find(utteredWord => currentTrainingPhrase.split(splitRegex).map(w => w.toLowerCase()).find(expectedWord => expectedWord == utteredWord))){
         trainingSuccess();
     }
-    else if(utterance.split(splitRegex).length > 2){
+    else if(utterance.split(splitRegex).length > 1){
         trainingSuccess();
     }
     else{
